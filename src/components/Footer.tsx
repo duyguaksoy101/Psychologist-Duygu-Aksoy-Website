@@ -1,14 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  return <footer className="bg-gray-50 py-12 mt-16">
+  const blogUrl = `https://${import.meta.env.VITE_HASHNODE_HOST}`;
+
+  return (
+    <footer className="bg-gray-50 py-12 mt-16">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <Link to="/" className="text-xl font-medium text-gray-800 mb-4 block">
-              Dr. Name
+              Psikolog Duygu Aksoy
             </Link>
             <p className="text-gray-600 mt-2 mb-6 text-sm max-w-xs">
               Providing professional psychological support and therapy services
@@ -37,9 +41,10 @@ const Footer = () => {
               <Link to="/about" className="text-gray-600 hover:text-gray-800 text-sm">
                 About Me
               </Link>
-              <Link to="/blog" className="text-gray-600 hover:text-gray-800 text-sm">
+              {/* Updated blog link to point to Hashnode */}
+              <a href={blogUrl} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-800 text-sm">
                 Blog
-              </Link>
+              </a>
               <Link to="/contact" className="text-gray-600 hover:text-gray-800 text-sm">
                 Get in Touch
               </Link>
@@ -61,7 +66,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Mail size={18} className="text-gray-600" />
                 <span className="text-gray-600 text-sm">
-                  contact@yourname.com
+                  contact@psikologduyguaksoy.com
                 </span>
               </div>
             </div>
@@ -69,7 +74,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-gray-200 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm">
-            © {currentYear} Dr. Name. All rights reserved.
+            © {currentYear} Psikolog Duygu Aksoy. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy" className="text-gray-500 hover:text-gray-800 text-sm">
@@ -81,6 +86,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
