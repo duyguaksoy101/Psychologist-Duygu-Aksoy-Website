@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Award, BookOpen, Users } from 'lucide-react';
-import BookingCTA from '@/components/BookingCTA.tsx';
+import BookingCTA from '../components/BookingCTA';
 const AboutPage = () => {
   return <div className="w-full">
       {/* Hero Section */}
@@ -10,16 +10,17 @@ const AboutPage = () => {
           <div className="flex flex-col md:flex-row items-center">
             <div className="w-full md:w-1/2 md:pr-12 mb-10 md:mb-0">
               <h1 className="text-4xl md:text-5xl font-medium text-gray-900 leading-tight mb-6">
-                About Me
+                Hakkımda
               </h1>
               <p className="text-gray-600 text-lg mb-6">
-                I'm a licensed psychologist dedicated to helping individuals
-                navigate life's challenges and achieve mental well-being.
+                Bireylerin hayatın zorluklarında yol almalarına ve zihinsel
+                esenliğe ulaşmalarına yardımcı olmaya adanmış lisanslı bir
+                psikoloğum.
               </p>
             </div>
             <div className="w-full md:w-1/2">
               <div className="bg-gray-100 rounded-lg overflow-hidden aspect-[4/3]">
-                <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Psychologist portrait" className="w-full h-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Psikolog portresi" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -28,33 +29,35 @@ const AboutPage = () => {
       {/* Bio Section */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-3xl">
-          <h2 className="text-3xl font-medium text-gray-900 mb-6">My Story</h2>
+          <h2 className="text-3xl font-medium text-gray-900 mb-6">Hikayem</h2>
           <div className="prose prose-gray max-w-none">
             <p>
-              With over 10 years of experience as a practicing psychologist in
-              Istanbul, I've had the privilege of helping hundreds of clients
-              overcome challenges and improve their mental well-being. My
-              journey into psychology began with a deep curiosity about human
-              behavior and a desire to make a positive impact in people's lives.
+              İstanbul'da 10 yılı aşkın bir süredir praktisyen psikolog olarak,
+              yüzlerce danışanın zorlukların üstesinden gelmelerine ve zihinsel
+              sağlıklarını iyileştirmelerine yardımcı olma ayrıcalığına sahip
+              oldum. Psikolojiye olan yolculuğum, insan davranışına duyduğum
+              derin bir merak ve insanların hayatlarında olumlu bir etki yaratma
+              arzusuyla başladı.
             </p>
             <p>
-              After completing my education at [University Name], I specialized
-              in [specialization area], where I developed expertise in treating
-              anxiety, depression, relationship issues, and trauma. My approach
-              combines evidence-based techniques from cognitive-behavioral
-              therapy, psychodynamic theory, and mindfulness practices.
+              [Üniversite Adı]'ndaki eğitimimi tamamladıktan sonra, anksiyete,
+              depresyon, ilişki sorunları ve travma tedavisi konularında
+              uzmanlık geliştirdiğim [uzmanlık alanı]'nda uzmanlaştım.
+              Yaklaşımım, bilişsel-davranışçı terapi, psikodinamik teori ve
+              farkındalık uygulamalarından kanıta dayalı teknikleri birleştirir.
             </p>
             <p>
-              I believe that therapy is a collaborative process, and I'm
-              committed to creating a safe, non-judgmental space where you can
-              explore your thoughts and feelings. My goal is to help you develop
-              insights and skills that will support your long-term well-being.
+              Terapinin işbirlikçi bir süreç olduğuna inanıyorum ve
+              düşüncelerinizi ve duygularınızı keşfedebileceğiniz güvenli,
+              yargılayıcı olmayan bir alan yaratmaya kararlıyım. Amacım, uzun
+              vadeli esenliğinizi destekleyecek içgörüler ve beceriler
+              geliştirmenize yardımcı olmaktır.
             </p>
             <p>
-              When I'm not in the therapy room, I enjoy hiking in nature,
-              practicing yoga, and exploring the rich cultural experiences that
-              Istanbul has to offer. These activities help me maintain my own
-              well-being and bring fresh perspectives to my work.
+              Terapi odasında olmadığım zamanlarda, doğada yürüyüş yapmaktan,
+              yoga yapmaktan ve İstanbul'un sunduğu zengin kültürel deneyimleri
+              keşfetmekten keyif alırım. Bu aktiviteler, kendi esenliğimi
+              korumama ve işime taze bakış açıları getirmeme yardımcı olur.
             </p>
           </div>
         </div>
@@ -64,54 +67,52 @@ const AboutPage = () => {
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-4">
-              Qualifications & Expertise
+              Nitelikler ve Uzmanlık
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              My professional background and areas of specialization.
+              Profesyonel geçmişim ve uzmanlık alanlarım.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             <div className="bg-white p-8 rounded-lg shadow-sm">
               <Award className="text-gray-800 mb-4" size={32} />
-              <h3 className="text-xl font-medium text-gray-800 mb-2">
-                Education
-              </h3>
+              <h3 className="text-xl font-medium text-gray-800 mb-2">Eğitim</h3>
               <ul className="text-gray-600 space-y-3">
-                <li>Ph.D. in Clinical Psychology, University Name</li>
-                <li>M.A. in Psychology, University Name</li>
-                <li>B.A. in Psychology, University Name</li>
-                <li>Certified in Cognitive Behavioral Therapy</li>
+                <li>Klinik Psikoloji Doktora, Üniversite Adı</li>
+                <li>Psikoloji Yüksek Lisans, Üniversite Adı</li>
+                <li>Psikoloji Lisans, Üniversite Adı</li>
+                <li>Bilişsel Davranışçı Terapi Sertifikası</li>
               </ul>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-sm">
               <BookOpen className="text-gray-800 mb-4" size={32} />
               <h3 className="text-xl font-medium text-gray-800 mb-2">
-                Specializations
+                Uzmanlık Alanları
               </h3>
               <ul className="text-gray-600 space-y-3">
-                <li>Anxiety and Stress Management</li>
-                <li>Depression and Mood Disorders</li>
-                <li>Relationship Counseling</li>
-                <li>Trauma and PTSD</li>
-                <li>Personal Growth and Self-Esteem</li>
+                <li>Anksiyete ve Stres Yönetimi</li>
+                <li>Depresyon ve Duygu Durum Bozuklukları</li>
+                <li>İlişki Danışmanlığı</li>
+                <li>Travma ve TSSB</li>
+                <li>Kişisel Gelişim ve Öz-Saygı</li>
               </ul>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-sm">
               <Users className="text-gray-800 mb-4" size={32} />
               <h3 className="text-xl font-medium text-gray-800 mb-2">
-                Professional Memberships
+                Profesyonel Üyelikler
               </h3>
               <ul className="text-gray-600 space-y-3">
-                <li>Turkish Psychological Association</li>
-                <li>International Association of Counseling</li>
-                <li>European Federation of Psychologists' Associations</li>
-                <li>World Health Organization Consultant</li>
+                <li>Türk Psikologlar Derneği</li>
+                <li>Uluslararası Danışmanlık Birliği</li>
+                <li>Avrupa Psikologlar Federasyonu</li>
+                <li>Dünya Sağlık Örgütü Danışmanı</li>
               </ul>
             </div>
           </div>
           <div className="text-center">
             <Link to="/contact" className="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-gray-800 rounded-md hover:bg-gray-700 transition-colors">
-              Schedule a Consultation
+              Danışmanlık Randevusu Alın
               <ArrowRight size={16} className="ml-2" />
             </Link>
           </div>
@@ -123,30 +124,31 @@ const AboutPage = () => {
           <div className="flex flex-col md:flex-row items-center">
             <div className="w-full md:w-1/2 mb-10 md:mb-0 md:pr-12">
               <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
-                My Approach
+                Yaklaşımım
               </h2>
               <p className="text-gray-600 mb-6">
-                I believe in tailoring therapy to each individual's unique needs
-                and circumstances. My approach is integrative, drawing from
-                various evidence-based therapeutic modalities to create a
-                personalized treatment plan.
+                Terapiyi her bireyin benzersiz ihtiyaçlarına ve koşullarına göre
+                şekillendirmeye inanıyorum. Yaklaşımım bütünleştiricidir ve
+                kişiselleştirilmiş bir tedavi planı oluşturmak için çeşitli
+                kanıta dayalı terapötik yöntemlerden yararlanır.
               </p>
               <p className="text-gray-600 mb-6">
-                I prioritize creating a warm, empathetic, and non-judgmental
-                environment where you feel safe to explore your thoughts and
-                feelings. Together, we'll work collaboratively to help you
-                develop insights, skills, and strategies that support your goals
-                and well-being.
+                Düşüncelerinizi ve duygularınızı keşfetmek için güvende
+                hissettiğiniz sıcak, empatik ve yargılayıcı olmayan bir ortam
+                yaratmayı önceliklendiriyorum. Birlikte, hedeflerinizi ve
+                esenliğinizi destekleyen içgörüler, beceriler ve stratejiler
+                geliştirmenize yardımcı olmak için işbirliği içinde çalışacağız.
               </p>
               <p className="text-gray-600">
-                Whether you're dealing with a specific challenge or seeking
-                personal growth, my goal is to empower you with the tools and
-                understanding you need to create positive change in your life.
+                İster belirli bir zorlukla başa çıkıyor olun, ister kişisel
+                gelişim arayışında olun, amacım hayatınızda olumlu bir
+                değişiklik yaratmak için ihtiyaç duyduğunuz araçlar ve anlayışla
+                sizi güçlendirmektir.
               </p>
             </div>
             <div className="w-full md:w-1/2">
               <div className="bg-gray-100 rounded-lg overflow-hidden aspect-square">
-                <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Therapy session" className="w-full h-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Terapi seansı" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>

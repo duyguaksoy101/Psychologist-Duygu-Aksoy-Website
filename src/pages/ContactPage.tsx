@@ -7,11 +7,11 @@ const ContactPage = () => {
         <div className="container mx-auto max-w-5xl">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6">
-              Get in Touch
+              İletişime Geçin
             </h1>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Have questions or ready to schedule your first session? Reach out
-              using any of the methods below.
+              Sorularınız mı var veya ilk seansınızı planlamaya hazır mısınız?
+              Aşağıdaki yöntemlerden herhangi birini kullanarak ulaşın.
             </p>
           </div>
         </div>
@@ -23,45 +23,49 @@ const ContactPage = () => {
             {/* Contact Information */}
             <div className="w-full md:w-2/5">
               <h2 className="text-2xl font-medium text-gray-800 mb-6">
-                Contact Information
+                İletişim Bilgileri
               </h2>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <MapPin size={24} className="text-gray-800 mt-0.5" />
                   <div>
-                    <h3 className="font-medium text-gray-800">
-                      Office Location
-                    </h3>
-                    <p className="text-gray-600">123 Therapy Street, Beyoglu</p>
-                    <p className="text-gray-600">Istanbul, Turkey</p>
+                    <h3 className="font-medium text-gray-800">Ofis Konumu</h3>
+                    <p className="text-gray-600">123 Terapi Sokak, Beyoğlu</p>
+                    <p className="text-gray-600">İstanbul, Türkiye</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <Phone size={24} className="text-gray-800 mt-0.5" />
                   <div>
-                    <h3 className="font-medium text-gray-800">Phone</h3>
+                    <h3 className="font-medium text-gray-800">Telefon</h3>
                     <p className="text-gray-600">+90 123 456 7890</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <Mail size={24} className="text-gray-800 mt-0.5" />
                   <div>
-                    <h3 className="font-medium text-gray-800">Email</h3>
+                    <h3 className="font-medium text-gray-800">E-posta</h3>
                     <p className="text-gray-600">contact@yourname.com</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <Clock size={24} className="text-gray-800 mt-0.5" />
                   <div>
-                    <h3 className="font-medium text-gray-800">Office Hours</h3>
-                    <p className="text-gray-600">Monday - Friday: 9am - 6pm</p>
-                    <p className="text-gray-600">Saturday: 10am - 2pm</p>
-                    <p className="text-gray-600">Sunday: Closed</p>
+                    <h3 className="font-medium text-gray-800">
+                      Çalışma Saatleri
+                    </h3>
+                    <p className="text-gray-600">
+                      Pazartesi - Cuma: 9:00 - 18:00
+                    </p>
+                    <p className="text-gray-600">Cumartesi: 10:00 - 14:00</p>
+                    <p className="text-gray-600">Pazar: Kapalı</p>
                   </div>
                 </div>
               </div>
               <div className="mt-8 pt-8 border-t border-gray-200">
-                <h3 className="font-medium text-gray-800 mb-4">Follow Me</h3>
+                <h3 className="font-medium text-gray-800 mb-4">
+                  Beni Takip Edin
+                </h3>
                 <div className="flex space-x-4">
                   <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="bg-gray-100 hover:bg-gray-200 p-3 rounded-full transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -88,55 +92,55 @@ const ContactPage = () => {
             {/* Contact Form */}
             <div className="w-full md:w-3/5">
               <h2 className="text-2xl font-medium text-gray-800 mb-6">
-                Send a Message
+                Mesaj Gönderin
               </h2>
               <form className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
-                      First Name
+                      Ad
                     </label>
                     <input type="text" id="firstName" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" required />
                   </div>
                   <div>
                     <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
-                      Last Name
+                      Soyad
                     </label>
                     <input type="text" id="lastName" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" required />
                   </div>
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email Address
+                    E-posta Adresi
                   </label>
                   <input type="email" id="email" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" required />
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                    Phone Number
+                    Telefon Numarası
                   </label>
                   <input type="tel" id="phone" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" />
                 </div>
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                    Subject
+                    Konu
                   </label>
                   <select id="subject" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" required>
-                    <option value="">Please select</option>
-                    <option value="booking">Schedule a Session</option>
-                    <option value="question">General Question</option>
-                    <option value="feedback">Feedback</option>
-                    <option value="other">Other</option>
+                    <option value="">Lütfen seçiniz</option>
+                    <option value="booking">Seans Planla</option>
+                    <option value="question">Genel Soru</option>
+                    <option value="feedback">Geri Bildirim</option>
+                    <option value="other">Diğer</option>
                   </select>
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    Message
+                    Mesaj
                   </label>
                   <textarea id="message" rows={5} className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" required></textarea>
                 </div>
                 <button type="submit" className="inline-flex items-center justify-center px-6 py-3 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition-colors">
-                  Send Message
+                  Mesaj Gönder
                   <Send size={16} className="ml-2" />
                 </button>
               </form>
@@ -150,7 +154,7 @@ const ContactPage = () => {
           <div className="bg-gray-100 rounded-lg overflow-hidden aspect-[16/9]">
             {/* This would be replaced with an actual map component in a real implementation */}
             <div className="w-full h-full flex items-center justify-center">
-              <p className="text-gray-500">Map would be displayed here</p>
+              <p className="text-gray-500">Harita burada gösterilecek</p>
             </div>
           </div>
         </div>
@@ -159,24 +163,24 @@ const ContactPage = () => {
       <section className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto max-w-3xl">
           <h2 className="text-2xl md:text-3xl font-medium text-gray-800 mb-8 text-center">
-            Frequently Asked Questions
+            Sıkça Sorulan Sorular
           </h2>
           <div className="space-y-6">
             {[{
-            question: 'What can I expect in the first session?',
-            answer: "The first session is primarily an assessment where we'll discuss what brings you to therapy, your background, and your goals. I'll explain my approach and answer any questions you have. This session helps us determine if we're a good fit for working together."
+            question: 'İlk seansta neler bekleyebilirim?',
+            answer: 'İlk seans genellikle sizi terapiye getiren nedenleri, sizi tanıyabileceğim geçmişinizi ve şuan neler yaptığınız hakkında konuşacağımız bir değerlendirme görüşmesidir. Terapi yaklaşımımı açıklar ve aklınızdaki soruları yanıtlarım. Bu seans, birlikte çalışmanın ikimiz için uygun olup olmadığını anlamamıza yardımcı olur.'
           }, {
-            question: 'How long does each therapy session last?',
-            answer: 'Standard therapy sessions are 50 minutes long, which is the clinical hour. However, the initial consultation may be slightly longer, typically around 60-75 minutes.'
+            question: 'Her terapi seansı ne kadar sürer?',
+            answer: 'Standart seanslar 50 dakika sürer, bu genel kabul görmüş süredir. Ancak ilk görüşme genellikle biraz daha uzun olup, 60-75 dakika arasında değişebilir.'
           }, {
-            question: 'How frequently will we meet?',
-            answer: 'Most clients start with weekly sessions. As progress is made, we may adjust to biweekly or monthly sessions. The frequency depends on your specific needs and goals.'
+            question: 'Ne sıklıkla görüşeceğiz?',
+            answer: 'Çoğu danışan haftalık seanslarla başlar. İlerleme kaydedildikçe, iki haftada bir veya aylık seanslara geçebiliriz. Sıklık, sizin özel ihtiyaçlarınıza ve hedeflerinize bağlıdır.'
           }, {
-            question: 'Is therapy confidential?',
-            answer: "Yes, confidentiality is a fundamental aspect of therapy. Everything discussed in our sessions remains private with a few legal exceptions, such as if there's a risk of harm to yourself or others, or in cases of child or elder abuse."
+            question: 'Terapide konuştuklarım gizli tutulacak mı?',
+            answer: 'Evet, gizlilik terapi sürecinin temel bir unsurudur. Seanslarımızda konuşulanlar tamamıyla gizli tutulur; bazı yasal istisnalar dışında (örneğin, kendinize veya başkasına zarar verme riski ya da çocuk/yaşlı istismarı durumları gibi).'
           }, {
-            question: 'Do you offer online therapy sessions?',
-            answer: 'Yes, I offer secure online video sessions for clients who prefer remote therapy or are unable to attend in-person appointments.'
+            question: 'Online Terapi Seansı Sunuyor musunuz?',
+            answer: 'Evet, tüm seanslarımız Google Meet üzerinden, kayıt alınmadan yapılmaktadır.'
           }].map((faq, index) => <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
                 <h3 className="text-lg font-medium text-gray-800 mb-2">
                   {faq.question}
