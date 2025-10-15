@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Mail, Phone, MapPin } from 'lucide-react';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   // Use optional chaining to safely access environment variable
@@ -19,12 +19,6 @@ const Footer = () => {
             <div className="flex space-x-4">
               <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-800">
                 <Instagram size={20} />
-              </a>
-              <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-800">
-                <Facebook size={20} />
-              </a>
-              <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-800">
-                <Linkedin size={20} />
               </a>
             </div>
           </div>

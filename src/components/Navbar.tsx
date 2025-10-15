@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Instagram, Facebook, Linkedin } from 'lucide-react';
+import { Menu, X, Instagram } from 'lucide-react';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -32,12 +32,6 @@ const Navbar = () => {
   const socialLinks = [{
     icon: <Instagram size={18} />,
     url: 'https://instagram.com/'
-  }, {
-    icon: <Facebook size={18} />,
-    url: 'https://facebook.com/'
-  }, {
-    icon: <Linkedin size={18} />,
-    url: 'https://linkedin.com/'
   }];
   const renderNavLink = (link: {
     name: string;

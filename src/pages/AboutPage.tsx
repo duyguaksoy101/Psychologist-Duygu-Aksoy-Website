@@ -73,7 +73,7 @@ const AboutPage = () => {
               Profesyonel geçmişim ve uzmanlık alanlarım.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <div className="bg-white p-8 rounded-lg shadow-sm">
               <Award className="text-gray-800 mb-4" size={32} />
               <h3 className="text-xl font-medium text-gray-800 mb-2">Eğitim</h3>
@@ -95,18 +95,6 @@ const AboutPage = () => {
                 <li>İlişki Danışmanlığı</li>
                 <li>Travma ve TSSB</li>
                 <li>Kişisel Gelişim ve Öz-Saygı</li>
-              </ul>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-sm">
-              <Users className="text-gray-800 mb-4" size={32} />
-              <h3 className="text-xl font-medium text-gray-800 mb-2">
-                Profesyonel Üyelikler
-              </h3>
-              <ul className="text-gray-600 space-y-3">
-                <li>Türk Psikologlar Derneği</li>
-                <li>Uluslararası Danışmanlık Birliği</li>
-                <li>Avrupa Psikologlar Federasyonu</li>
-                <li>Dünya Sağlık Örgütü Danışmanı</li>
               </ul>
             </div>
           </div>

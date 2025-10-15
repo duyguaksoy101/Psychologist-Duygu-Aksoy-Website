@@ -18,6 +18,16 @@ const HomePage = () => {
   const [error, setError] = useState<string | null>(null);
   // Use optional chaining to safely access environment variable
   const blogUrl = `https://${import.meta.env?.VITE_HASHNODE_HOST || 'blog.example.com'}`;
+  // Rotating quotes state
+  const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
+  const quotes = ['Artık aynı döngüleri yaşamak istemiyorum.', 'Kendimi hep yalnız hissediyorum.', 'Zihnim hiç durmuyor, rahatlayamıyorum.', 'Hayatın yükü ağır geliyor.', 'Gelecekte ne yapacağımı bilemiyorum.', 'Kendime güvenmek istiyorum.', 'Huzura ihtiyacım var.', 'İçimdeki boşluk hiç dolmuyor.', 'Bir türlü mutlu olamıyorum.', 'Kimse beni anlamıyor.', 'Hayatımda bir değişim başlatmak istiyorum.', 'Sürekli kaygı ve endişe içindeyim.', 'Kendimi olduğum gibi kabul etmek istiyorum.'];
+  // Set up quote rotation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentQuoteIndex(prevIndex => prevIndex === quotes.length - 1 ? 0 : prevIndex + 1);
+    }, 3500); // Change every 3.5 seconds
+    return () => clearInterval(interval);
+  }, [quotes.length]);
   useEffect(() => {
     const fetchPosts = async () => {
       // Caching logic: Check if we have recent posts in localStorage
@@ -137,9 +147,8 @@ const HomePage = () => {
                   <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Psikolog çalışırken" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-white p-4 shadow-lg rounded-lg max-w-xs">
-                  <p className="text-gray-800 font-medium">
-                    "Size içsel gücünüzü ve dayanıklılığınızı keşfetmenizde
-                    yardımcı oluyorum."
+                  <p className="text-gray-800 font-medium transition-opacity duration-500">
+                    "{quotes[currentQuoteIndex]}"
                   </p>
                 </div>
               </div>
@@ -174,6 +183,18 @@ const HomePage = () => {
             title: 'Özgüven Sorunu',
             description: 'Hayatınızda daha sağlam adımlar atabilmek için bugün adım atın.',
             image: 'https://images.unsplash.com/photo-1474418397713-2f1091953b9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+          }, {
+            title: 'Yaygın Anksiyete Bozukluğu',
+            description: 'Sürekli kaygı duygusuyla başa çıkmanın yollarını öğrenebilir, kendinizi daha huzurlu hissedebilirsiniz.',
+            image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+          }, {
+            title: 'Sınav Kaygısı',
+            description: 'Sınav döneminde yaşadığınız kaygıyı azaltmak, potansiyelinizi özgürce göstermek için destek alabilirsiniz.',
+            image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+          }, {
+            title: 'Stres',
+            description: 'Günlük yaşamda karşılaşılan stresi azaltmaya ve zihinsel rahatlığı sağlamaya yönelik teknikler ile tanışın.',
+            image: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
           }].map((service, index) => <div key={index} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div className="aspect-[3/2] overflow-hidden">
                   <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform hover:scale-105 duration-500" />
