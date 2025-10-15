@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Award, BookOpen, Users } from 'lucide-react';
-import BookingCTA from '../components/BookingCTA';
+import BookingCTA from '@/components/BookingCTA.tsx';
 const AboutPage = () => {
   return <div className="w-full">
       {/* Hero Section */}
