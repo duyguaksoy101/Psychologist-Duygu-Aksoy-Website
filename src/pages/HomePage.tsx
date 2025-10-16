@@ -174,7 +174,7 @@ const HomePage = () => {
             {[{
             title: 'Depresyon',
             description: 'Hayat enerjinizi yeniden kazanmak için bugün ilk adımı atabilirsiniz.',
-            image: '/image/depression.jpg'
+            image: '/image/depresyon.webp'
           }, {
             title: 'Travma Sonrası Stres Bozuklukları',
             description: 'Geçmiş travmalarınızın izleriyle baş edip, iyileşmek için bugün adım atabilirsiniz.',
