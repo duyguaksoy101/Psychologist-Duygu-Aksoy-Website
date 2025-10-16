@@ -1,7 +1,11 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/blog/:path*",
+      "destination": "https://blog.psikologduyguaksoy.com/:path*"
+    },
+    {
+      "source": "/((?!api/|_next/|_static/|_vercel|[\\w-]+\\.\\w+).*)",
       "destination": "/index.html"
     }
   ]
