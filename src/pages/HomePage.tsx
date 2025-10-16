@@ -288,14 +288,14 @@ const HomePage = () => {
           <div className="flex justify-between items-end mb-12">
             <div>
               <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-4">
-                Son Yazılar
+                Son Yazılarımıza Göz Atmak İster misiniz?
               </h2>
               <p className="text-gray-600 max-w-2xl">
-                Zihinsel sağlık yolculuğunuz için görüşler ve kaynaklar.
+                Merak eden, kendine ve ihtiyaçlarına dair sorular sormayı sevenler için hazırlanan yazılarımıza göz atmak ister misiniz? Psikoloji, kişisel gelişim ve duygusal keşif konularına odaklanarak, bilgi ve deneyimlerimizi paylaşıyoruz.
               </p>
             </div>
             <a href={blogUrl} target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex items-center text-sm font-medium text-gray-800 hover:text-gray-600">
-              Tüm yazıları görüntüle
+              Tüm yazılarımıza göz atın
               <ArrowRight size={16} className="ml-1" />
             </a>
           </div>
