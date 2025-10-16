@@ -225,7 +225,7 @@ const HomePage = () => {
                 </div>
                 <div className="absolute top-4 -right-4 w-24 h-24 bg-gray-50 rounded-full flex items-center justify-center text-center p-2">
                   <span className="text-gray-800 font-medium text-sm leading-tight">
-                    10+ Yıl Deneyim
+                    Kendi İçimize Yolculuk 
                   </span>
                 </div>
               </div>
@@ -235,16 +235,14 @@ const HomePage = () => {
                 Hakkımda
               </h2>
               <p className="text-gray-600 mb-6">
-                Bireylerin zorlukların üstesinden gelmelerine ve zihinsel
-                sağlıklarını iyileştirmelerine yardımcı olma konusunda 10 yılı
-                aşkın deneyime sahip lisanslı bir psikoloğum. Yaklaşımım, kanıta
-                dayalı teknikleri şefkat ve anlayışla birleştiriyor.
+                Psikoloji, hayatın ikinci yarısı için hem entelektüel hem de insani açıdan son derece zenginleştirici bir meslek. Bu cümle, benim yolculuğumu en iyi tanımlayan ifadelerden biri. Psikolojiye olan ilgim aslında her zaman vardı; ancak toplumsal ve kültürel dinamikler uzun süre bu ilgiyi profesyonel bir yöne çevirmemi geciktirdi. Nihayetinde ise beni bu alana yönlendiren şey, kendi terapi sürecimde yaşadığım derin dönüşüm ve içgörüler oldu.
               </p>
               <p className="text-gray-600 mb-8">
-                Terapinin işbirlikçi bir süreç olduğuna inanıyorum ve
-                düşüncelerinizi ve duygularınızı keşfedebileceğiniz güvenli,
-                yargılayıcı olmayan bir alan yaratmaya kararlıyım.
+                Kariyerimin ilk yıllarında laboratuvar araştırmalarından proje yönetimine, oradan da farklı kültür ve ülkelerden profesyonellerle yürüttüğüm yazılım projelerine uzanan çok yönlü bir deneyim edindim. Bu süreçte kurum içi dinamiklerin, liderliğin, ekip ruhunun ve bireysel farkındalığın iş yaşamındaki etkilerini yakından gözlemleme fırsatım oldu. Zaman zaman mobbing gibi yıpratıcı süreçleri, zaman zaman da gerçek anlamda destekleyici bir ekip kültürünün dönüştürücü gücünü deneyimledim. Tüm bu deneyimler, insan davranışını çok boyutlu biçimde anlamamı sağladı ve bugün psikolojiye bakışımın temelini oluşturdu.
               </p>
+              </p>
+              <p className="text-gray-600 mb-8">
+                Şimdi, edindiğim bu birikimi klinik psikoloji alanına taşıyorum. İnsan zihninin, ilişkilerin ve değişimin derinliklerini keşfetmeye yönelik tutkumla, Klinik Psikoloji Yüksek Lisans eğitimimi tamamlamak üzereyim. Her adımda, hem bilimsel temellere dayalı hem de insana dokunan bir psikolog olma hedefiyle ilerliyorum.              </p>
               <Link to="/about" className="inline-flex items-center px-6 py-3 text-sm font-medium text-gray-800 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
                 Hakkımda Daha Fazla
                 <ArrowRight size={16} className="ml-2" />
