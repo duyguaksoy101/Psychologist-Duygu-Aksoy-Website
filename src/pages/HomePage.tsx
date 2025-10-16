@@ -194,7 +194,7 @@ const HomePage = () => {
           }, {
             title: 'Stres',
             description: 'Günlük yaşamda karşılaşılan stresi azaltmaya ve zihinsel rahatlığı sağlamaya yönelik teknikler ile tanışın.',
-            image: '/image/stress.jpg'
+            image: '/image/stres.webp'
           }].map((service, index) => <div key={index} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div className="aspect-[3/2] overflow-hidden">
                   <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform hover:scale-105 duration-500" />
