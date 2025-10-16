@@ -17,7 +17,7 @@ const AboutPage = () => {
               </p>
             </div>
             <div className="w-full md:w-1/2">
-              <div className="bg-gray-100 rounded-lg overflow-hidden aspect-[4/3]">
+              <div className="bg-gray-100 rounded-lg overflow-hidden aspect-[4/4]">
                 <img src="/image/psikolog-duygu-aksoy.webp" alt="Psikolog Duygu Aksoy" className="w-full h-full object-cover" />
               </div>
             </div>
@@ -31,7 +31,9 @@ const AboutPage = () => {
           <div className="prose prose-gray max-w-none">
             <p>
              Psikolojiyle tanışmam, aslında çok yıllar önce içimde sessizce filizlenmiş bir merakın olgunlaşmış hali. Üniversite tercihlerimde psikolojiyi seçmek istememe rağmen, dönemin koşulları ve ailemin yönlendirmesiyle mühendislik okudum. Kimya Mühendisliği ve ardından gelen yüksek lisans eğitimi, bana analitik düşünme, sistematik çalışma ve insanın üretim süreçlerine bakışını kazandırdı. Ancak içimdeki “insanı anlama” isteği hiç sönmedi.
-            </p>
+            </p> 
+            <br>
+            </br> 
             <p>
               Profesyonel hayatım boyunca laboratuvar ortamlarından yazılım dünyasına, startup kuruculuğundan ürün yönetimine uzanan geniş bir yelpazede çalıştım. Bu süreçte hem başarıyı hem de başarısızlığı, ekip olmanın gücünü, tükenmişliği ve yeniden başlamanın cesaretini deneyimledim. Tüm bu deneyimler, insan davranışını yalnızca teorik olarak değil, hayatın içinden gözlemleme fırsatı sundu.
             </p>
