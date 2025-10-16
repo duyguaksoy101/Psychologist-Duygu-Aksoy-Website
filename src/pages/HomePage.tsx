@@ -144,7 +144,7 @@ const HomePage = () => {
             <div className="w-full md:w-1/2">
               <div className="relative">
                 <div className="bg-gray-100 rounded-lg overflow-hidden aspect-[4/5]">
-                  <img src="/image/hero-image.webp alt="Psikolog Duygu Aksoy ile seans" className="w-full h-full object-cover" />
+                  <img src="/image/hero-image.webp" alt="Psikolog Duygu Aksoy ile seans" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-white p-4 shadow-lg rounded-lg max-w-xs">
                   <p className="text-gray-800 font-medium transition-opacity duration-500">
