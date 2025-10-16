@@ -125,7 +125,7 @@ Belirli bir sorunla başa çıkmaya çalışıyor olun ya da kişisel gelişimin
             </div>
             <div className="w-full md:w-1/2">
               <div className="bg-gray-100 rounded-lg overflow-hidden aspect-square">
-                <img src="/images/yaklasimim.webp" alt="Yaklaşımım" className="w-full h-full object-cover" />
+                <img src="/image/yaklasimim.webp" alt="Yaklaşımım" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
