@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Mail, Phone } from 'lucide-react';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   // Use optional chaining to safely access environment variable
@@ -47,10 +47,6 @@ const Footer = () => {
               İletişim
             </h3>
             <div className="flex flex-col space-y-3">
-              <div className="flex items-start space-x-3">
-                <MapPin size={18} className="text-gray-600 mt-0.5" />
-                <span className="text-gray-600 text-sm">İstanbul, Türkiye</span>
-              </div>
               <div className="flex items-center space-x-3">
                 <Phone size={18} className="text-gray-600" />
                 <span className="text-gray-600 text-sm">+90 123 456 7890</span>

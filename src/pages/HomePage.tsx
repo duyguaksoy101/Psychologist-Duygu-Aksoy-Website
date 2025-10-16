@@ -144,7 +144,7 @@ const HomePage = () => {
             <div className="w-full md:w-1/2">
               <div className="relative">
                 <div className="bg-gray-100 rounded-lg overflow-hidden aspect-[4/5]">
-                  <img src="/images/hero-image.webp" alt="Psikolog Duygu Aksoy ile seans" className="w-full h-full object-cover" />
+                  <img src="/images/hero-image.jpg" alt="Psikolog çalışırken" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-white p-4 shadow-lg rounded-lg max-w-xs">
                   <p className="text-gray-800 font-medium transition-opacity duration-500">
@@ -174,27 +174,27 @@ const HomePage = () => {
             {[{
             title: 'Depresyon',
             description: 'Hayat enerjinizi yeniden kazanmak için bugün ilk adımı atabilirsiniz.',
-            image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+            image: '/images/depression.jpg'
           }, {
             title: 'Travma Sonrası Stres Bozuklukları',
             description: 'Geçmiş travmalarınızın izleriyle baş edip, iyileşmek için bugün adım atabilirsiniz.',
-            image: 'https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+            image: '/images/trauma.jpg'
           }, {
             title: 'Özgüven Sorunu',
             description: 'Hayatınızda daha sağlam adımlar atabilmek için bugün adım atın.',
-            image: 'https://images.unsplash.com/photo-1474418397713-2f1091953b9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+            image: '/images/confidence.jpg'
           }, {
             title: 'Yaygın Anksiyete Bozukluğu',
             description: 'Sürekli kaygı duygusuyla başa çıkmanın yollarını öğrenebilir, kendinizi daha huzurlu hissedebilirsiniz.',
-            image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+            image: '/images/anxiety.jpg'
           }, {
             title: 'Sınav Kaygısı',
             description: 'Sınav döneminde yaşadığınız kaygıyı azaltmak, potansiyelinizi özgürce göstermek için destek alabilirsiniz.',
-            image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+            image: '/images/exam-anxiety.jpg'
           }, {
             title: 'Stres',
             description: 'Günlük yaşamda karşılaşılan stresi azaltmaya ve zihinsel rahatlığı sağlamaya yönelik teknikler ile tanışın.',
-            image: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+            image: '/images/stress.jpg'
           }].map((service, index) => <div key={index} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div className="aspect-[3/2] overflow-hidden">
                   <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform hover:scale-105 duration-500" />
@@ -221,7 +221,7 @@ const HomePage = () => {
             <div className="w-full md:w-2/5 mb-10 md:mb-0">
               <div className="relative">
                 <div className="bg-gray-100 rounded-lg overflow-hidden aspect-square">
-                  <img src="/images/Psikolog Duygu Aksoy.webp" alt="Psikolog Duygu Aksoy" className="w-full h-full object-cover" />
+                  <img src="/images/about-image.jpg" alt="Psikolog portresi" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute top-4 -right-4 w-24 h-24 bg-gray-50 rounded-full flex items-center justify-center text-center p-2">
                   <span className="text-gray-800 font-medium text-sm leading-tight">

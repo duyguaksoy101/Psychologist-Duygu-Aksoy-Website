@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useEffect, createElement } from 'react';
 import { Phone, Mail, Clock, Send } from 'lucide-react';
 const ContactPage = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
   return <div className="w-full">
       {/* Hero Section */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20 px-4">
@@ -26,13 +35,6 @@ const ContactPage = () => {
                 İletişim Bilgileri
               </h2>
               <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div>
-                    <h3 className="font-medium text-gray-800">Ofis Konumu</h3>
-                    <p className="text-gray-600">123 Terapi Sokak, Beyoğlu</p>
-                    <p className="text-gray-600">İstanbul, Türkiye</p>
-                  </div>
-                </div>
                 <div className="flex items-start space-x-4">
                   <Phone size={24} className="text-gray-800 mt-0.5" />
                   <div>
@@ -133,6 +135,24 @@ const ContactPage = () => {
               </form>
             </div>
           </div>
+        </div>
+      </section>
+      {/* Calendly Widget Section */}
+      <section className="py-12 px-4">
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-medium text-gray-800 mb-4">
+              Randevu Planlayın
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Aşağıdaki takvimi kullanarak doğrudan bir seans randevusu
+              oluşturabilirsiniz.
+            </p>
+          </div>
+          <div className="calendly-inline-widget" data-url="https://calendly.com/duygu_aksoy/seans-randevunuzu-olusturun" style={{
+          minWidth: '320px',
+          height: '700px'
+        }}></div>
         </div>
       </section>
       {/* FAQ Section */}

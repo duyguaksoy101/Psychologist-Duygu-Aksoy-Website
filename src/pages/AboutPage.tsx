@@ -20,7 +20,7 @@ const AboutPage = () => {
             </div>
             <div className="w-full md:w-1/2">
               <div className="bg-gray-100 rounded-lg overflow-hidden aspect-[4/3]">
-                <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Psikolog portresi" className="w-full h-full object-cover" />
+                <img src="/images/about-hero.jpg" alt="Psikolog portresi" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -136,7 +136,7 @@ const AboutPage = () => {
             </div>
             <div className="w-full md:w-1/2">
               <div className="bg-gray-100 rounded-lg overflow-hidden aspect-square">
-                <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Terapi seansı" className="w-full h-full object-cover" />
+                <img src="/images/therapy-session.jpg" alt="Terapi seansı" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>

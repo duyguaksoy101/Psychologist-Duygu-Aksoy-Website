@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
@@ -8,8 +8,10 @@ import TermsPage from './pages/TermsPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import NotFoundPage from './pages/NotFoundPage';
+import ScrollToTop from './components/ScrollToTop';
 export function App() {
-  return <BrowserRouter>
+  return <>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-white">
         <Navbar />
         <main className="flex-grow">
@@ -25,5 +27,5 @@ export function App() {
         </main>
         <Footer />
       </div>
-    </BrowserRouter>;
+    </>;
 }
