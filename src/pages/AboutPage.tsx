@@ -40,6 +40,8 @@ const AboutPage = () => {
             <p>
         Kendi kişisel dönüşümüm, psikolojiye yeniden yönelmemin en güçlü motivasyonu oldu. Kendi terapi sürecim ve Konstelasyon çalışmalarıyla tanışmam, bu alana olan ilgimi kalıcı bir tutkuya dönüştürdü. Üç yıl süren yoğun eğitimlerin ardından, psikoloji lisans eğitimimi tamamlayarak profesyonel bir psikolog olarak çalışmaya başladım. Bugün, bireylerin yaşamlarında daha fazla farkındalık, denge ve anlam yaratmalarına eşlik etmeyi hedefliyorum.
             </p>
+             <br>
+            </br> 
             <p>
         Her bireyin hikayesinin kendine özgü olduğuna inanıyor; terapiyi, bu hikayeyi yeniden anlamlandırma ve dönüştürme süreci olarak görüyorum.
             </p>
@@ -123,7 +125,7 @@ Belirli bir sorunla başa çıkmaya çalışıyor olun ya da kişisel gelişimin
             </div>
             <div className="w-full md:w-1/2">
               <div className="bg-gray-100 rounded-lg overflow-hidden aspect-square">
-                <img src="/images/therapy-session.jpg" alt="Terapi seansı" className="w-full h-full object-cover" />
+                <img src="/images/yaklasimim.webp" alt="Yaklaşımım" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
