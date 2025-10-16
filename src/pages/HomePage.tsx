@@ -144,7 +144,7 @@ const HomePage = () => {
             <div className="w-full md:w-1/2">
               <div className="relative">
                 <div className="bg-gray-100 rounded-lg overflow-hidden aspect-[4/5]">
-                  <img src="/images/hero-image.jpg" alt="Psikolog çalışırken" className="w-full h-full object-cover" />
+                  <img src="/image/hero-image.webp alt="Psikolog Duygu Aksoy ile seans" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-white p-4 shadow-lg rounded-lg max-w-xs">
                   <p className="text-gray-800 font-medium transition-opacity duration-500">
@@ -174,27 +174,27 @@ const HomePage = () => {
             {[{
             title: 'Depresyon',
             description: 'Hayat enerjinizi yeniden kazanmak için bugün ilk adımı atabilirsiniz.',
-            image: '/images/depression.jpg'
+            image: '/image/depression.jpg'
           }, {
             title: 'Travma Sonrası Stres Bozuklukları',
             description: 'Geçmiş travmalarınızın izleriyle baş edip, iyileşmek için bugün adım atabilirsiniz.',
-            image: '/images/trauma.jpg'
+            image: '/image/trauma.jpg'
           }, {
             title: 'Özgüven Sorunu',
             description: 'Hayatınızda daha sağlam adımlar atabilmek için bugün adım atın.',
-            image: '/images/confidence.jpg'
+            image: '/image/confidence.jpg'
           }, {
             title: 'Yaygın Anksiyete Bozukluğu',
             description: 'Sürekli kaygı duygusuyla başa çıkmanın yollarını öğrenebilir, kendinizi daha huzurlu hissedebilirsiniz.',
-            image: '/images/anxiety.jpg'
+            image: '/image/anxiety.jpg'
           }, {
             title: 'Sınav Kaygısı',
             description: 'Sınav döneminde yaşadığınız kaygıyı azaltmak, potansiyelinizi özgürce göstermek için destek alabilirsiniz.',
-            image: '/images/exam-anxiety.jpg'
+            image: '/image/exam-anxiety.jpg'
           }, {
             title: 'Stres',
             description: 'Günlük yaşamda karşılaşılan stresi azaltmaya ve zihinsel rahatlığı sağlamaya yönelik teknikler ile tanışın.',
-            image: '/images/stress.jpg'
+            image: '/image/stress.jpg'
           }].map((service, index) => <div key={index} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div className="aspect-[3/2] overflow-hidden">
                   <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform hover:scale-105 duration-500" />
@@ -221,7 +221,7 @@ const HomePage = () => {
             <div className="w-full md:w-2/5 mb-10 md:mb-0">
               <div className="relative">
                 <div className="bg-gray-100 rounded-lg overflow-hidden aspect-square">
-                  <img src="/images/about-image.jpg" alt="Psikolog portresi" className="w-full h-full object-cover" />
+                  <img src="/image/Psikolog Duygu Aksoy.webp" alt="Psikolog Duygu Aksoy" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute top-4 -right-4 w-24 h-24 bg-gray-50 rounded-full flex items-center justify-center text-center p-2">
                   <span className="text-gray-800 font-medium text-sm leading-tight">
