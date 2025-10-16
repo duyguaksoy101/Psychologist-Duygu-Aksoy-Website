@@ -13,8 +13,7 @@ const Footer = () => {
               Psikolog Duygu Aksoy
             </Link>
             <p className="text-gray-600 mt-2 mb-6 text-sm max-w-xs">
-              Hayatın zorluklarını aşmanıza yardımcı olmak için profesyonel
-              psikolojik destek ve terapi hizmetleri sunuyorum.
+              Zaman zaman hepimiz, tek başımıza baş etmekte zorlandığımız dönemlerden geçeriz. Bu süreçlerde size eşlik edecek profesyonel psikolojik danışmanlık desteği sunuyorum.
             </p>
             <div className="flex space-x-4">
               <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-800">
@@ -38,7 +37,7 @@ const Footer = () => {
                 Blog
               </a>
               <Link to="/contact" className="text-gray-600 hover:text-gray-800 text-sm">
-                İletişime Geçin
+                İletişim
               </Link>
             </div>
           </div>
