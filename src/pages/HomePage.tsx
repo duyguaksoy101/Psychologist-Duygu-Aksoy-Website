@@ -104,18 +104,18 @@ const HomePage = () => {
   };
   const testimonials = [{
     id: 1,
-    text: 'Duygu Hanım ile çalışmak dönüştürücü oldu. Kaygımı yönetmek ve daha sağlıklı ilişkiler kurmak için araçlar kazandım.',
+    text: 'Kendimi yorgun, hatta tükenmiş hissettiğim bir süreçte elimi tutup, beni kendine güvenen, kendini ve karşısındakini anlayan birine dönüşmeme yardım ettiğiniz için çok teşekkür ederim.',
     author: 'Danışan A.',
     rating: 5
   }, {
     id: 2,
     text: "Duygu Hanım'ın yarattığı güvenli alan, yıllardır kaçındığım zorlu duyguları keşfetmeme olanak sağladı. Rehberliği için minnettarım.",
-    author: 'Danışan B.',
+    author: 'Danışan Ç.',
     rating: 5
   }, {
     id: 3,
-    text: 'Aylar süren terapiden sonra, nihayet hayatın zorluklarıyla güvenle ve öz-şefkatle başa çıkabilecek donanıma sahip olduğumu hissediyorum.',
-    author: 'Danışan C.',
+    text: 'Terapiden sonra, nihayet hayatın zorluklarıyla güvenle ve öz-şefkatle başa çıkabilecek donanıma sahip olduğumu hissediyorum.',
+    author: 'Danışan T.',
     rating: 5
   }];
   return <div className="w-full">
