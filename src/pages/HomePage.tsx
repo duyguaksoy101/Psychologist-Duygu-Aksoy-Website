@@ -178,19 +178,19 @@ const HomePage = () => {
           }, {
             title: 'Travma Sonrası Stres Bozuklukları',
             description: 'Geçmiş travmalarınızın izleriyle baş edip, iyileşmek için bugün adım atabilirsiniz.',
-            image: '/image/trauma.jpg'
+            image: '/image/travma.webp'
           }, {
             title: 'Özgüven Sorunu',
             description: 'Hayatınızda daha sağlam adımlar atabilmek için bugün adım atın.',
-            image: '/image/confidence.jpg'
+            image: '/image/ozguven.webp'
           }, {
             title: 'Yaygın Anksiyete Bozukluğu',
             description: 'Sürekli kaygı duygusuyla başa çıkmanın yollarını öğrenebilir, kendinizi daha huzurlu hissedebilirsiniz.',
-            image: '/image/anxiety.jpg'
+            image: '/image/anksiyete_bozuklugu.webp'
           }, {
             title: 'Sınav Kaygısı',
             description: 'Sınav döneminde yaşadığınız kaygıyı azaltmak, potansiyelinizi özgürce göstermek için destek alabilirsiniz.',
-            image: '/image/exam-anxiety.jpg'
+            image: '/image/sinav_kaygisi.webp'
           }, {
             title: 'Stres',
             description: 'Günlük yaşamda karşılaşılan stresi azaltmaya ve zihinsel rahatlığı sağlamaya yönelik teknikler ile tanışın.',
