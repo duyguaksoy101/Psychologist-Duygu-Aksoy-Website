@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Mail, Phone } from 'lucide-react';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  // Use optional chaining to safely access environment variable
-  const blogUrl = `https://${import.meta.env?.VITE_HASHNODE_HOST || 'psikologduyguaksoy.com/blog'}`;
+  // DEĞİŞİKLİK: blogUrl güncellendi
+  const blogUrl = '/blog';
+
   return <footer className="bg-gray-50 py-12 mt-16">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -32,8 +34,8 @@ const Footer = () => {
               <Link to="/about" className="text-gray-600 hover:text-gray-800 text-sm">
                 Hakkımda
               </Link>
-              {/* Updated blog link to point to Hashnode */}
-              <a href={blogUrl} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-800 text-sm">
+              {/* DEĞİŞİKLİK: Blog linki güncellendi */}
+              <a href={blogUrl} rel="noopener noreferrer" className="text-gray-600 hover:text-gray-800 text-sm">
                 Blog
               </a>
               <Link to="/contact" className="text-gray-600 hover:text-gray-800 text-sm">
@@ -48,12 +50,12 @@ const Footer = () => {
             <div className="flex flex-col space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone size={18} className="text-gray-600" />
-                <span className="text-gray-600 text-sm">+90 505 818 92 65</span>
+                <span className="text-gray-600 text-sm">+90 123 456 7890</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={18} className="text-gray-600" />
                 <span className="text-gray-600 text-sm">
-                  duyguaksoy101@gmail.com
+                  contact@psikologduyguaksoy.com
                 </span>
               </div>
             </div>
@@ -75,4 +77,6 @@ const Footer = () => {
       </div>
     </footer>;
 };
+
 export default Footer;
+
