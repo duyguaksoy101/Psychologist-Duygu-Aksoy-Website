@@ -17,7 +17,7 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   // Use optional chaining to safely access environment variable
-  const blogUrl = `https://${import.meta.env?.VITE_HASHNODE_HOST || 'blog.example.com'}`;
+  const blogUrl = `https://${import.meta.env?.VITE_HASHNODE_HOST || 'blog.psikologduyguaksoy.com'}`;
   // Rotating quotes state
   const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
   const quotes = ['Artık aynı döngüleri yaşamak istemiyorum.', 'Kendimi hep yalnız hissediyorum.', 'Zihnim hiç durmuyor, rahatlayamıyorum.', 'Hayatın yükü ağır geliyor.', 'Gelecekte ne yapacağımı bilemiyorum.', 'Kendime güvenmek istiyorum.', 'Huzura ihtiyacım var.', 'İçimdeki boşluk hiç dolmuyor.', 'Bir türlü mutlu olamıyorum.', 'Kimse beni anlamıyor.', 'Hayatımda bir değişim başlatmak istiyorum.', 'Sürekli kaygı ve endişe içindeyim.', 'Kendimi olduğum gibi kabul etmek istiyorum.'];
@@ -47,7 +47,7 @@ const HomePage = () => {
       // If no valid cache, fetch from API
       const GET_USER_ARTICLES = `
         query Publication {
-          publication(host: "${import.meta.env?.VITE_HASHNODE_HOST || 'blog.example.com'}") {
+          publication(host: "${import.meta.env?.VITE_HASHNODE_HOST || 'blog.psikologduyguaksoy.com'}") {
             posts(first: 3) {
               edges {
                 node {
