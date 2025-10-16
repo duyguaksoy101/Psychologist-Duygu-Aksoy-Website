@@ -221,7 +221,7 @@ const HomePage = () => {
             <div className="w-full md:w-2/5 mb-10 md:mb-0">
               <div className="relative">
                 <div className="bg-gray-100 rounded-lg overflow-hidden aspect-square">
-                  <img src="/image/Psikolog Duygu Aksoy.webp" alt="Psikolog Duygu Aksoy" className="w-full h-full object-cover" />
+                  <img src="/image/psikolog-duygu-aksoy.webp" alt="Psikolog Duygu Aksoy" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute top-4 -right-4 w-24 h-24 bg-gray-50 rounded-full flex items-center justify-center text-center p-2">
                   <span className="text-gray-800 font-medium text-sm leading-tight">
