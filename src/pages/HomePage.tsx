@@ -144,7 +144,7 @@ const HomePage = () => {
             <div className="w-full md:w-1/2">
               <div className="relative">
                 <div className="bg-gray-100 rounded-lg overflow-hidden aspect-[4/5]">
-                  <img src="public/images/hero-image.webp" alt="Psikolog Duygu Aksoy ile seans" className="w-full h-full object-cover" />
+                  <img src="/images/hero-image.webp" alt="Psikolog Duygu Aksoy ile seans" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-white p-4 shadow-lg rounded-lg max-w-xs">
                   <p className="text-gray-800 font-medium transition-opacity duration-500">
@@ -221,7 +221,7 @@ const HomePage = () => {
             <div className="w-full md:w-2/5 mb-10 md:mb-0">
               <div className="relative">
                 <div className="bg-gray-100 rounded-lg overflow-hidden aspect-square">
-                  <img src="public/images/Psikolog Duygu Aksoy.webp" alt="Psikolog Duygu Aksoy" className="w-full h-full object-cover" />
+                  <img src="/images/Psikolog Duygu Aksoy.webp" alt="Psikolog Duygu Aksoy" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute top-4 -right-4 w-24 h-24 bg-gray-50 rounded-full flex items-center justify-center text-center p-2">
                   <span className="text-gray-800 font-medium text-sm leading-tight">
