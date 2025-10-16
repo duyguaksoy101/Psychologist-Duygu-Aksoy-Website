@@ -39,14 +39,14 @@ const ContactPage = () => {
                   <Phone size={24} className="text-gray-800 mt-0.5" />
                   <div>
                     <h3 className="font-medium text-gray-800">Telefon</h3>
-                    <p className="text-gray-600">+90 123 456 7890</p>
+                    <p className="text-gray-600">+90 505 818 92 65</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
                   <Mail size={24} className="text-gray-800 mt-0.5" />
                   <div>
                     <h3 className="font-medium text-gray-800">E-posta</h3>
-                    <p className="text-gray-600">contact@yourname.com</p>
+                    <p className="text-gray-600">duyguaksoy101@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -58,7 +58,7 @@ const ContactPage = () => {
                     <p className="text-gray-600">
                       Pazartesi - Cuma: 9:00 - 18:00
                     </p>
-                    <p className="text-gray-600">Cumartesi: 10:00 - 14:00</p>
+                    <p className="text-gray-600">Cumartesi: Uygunluk için mail yazınız</p>
                     <p className="text-gray-600">Pazar: Kapalı</p>
                   </div>
                 </div>
