@@ -144,7 +144,7 @@ const HomePage = () => {
             <div className="w-full md:w-1/2">
               <div className="relative">
                 <div className="bg-gray-100 rounded-lg overflow-hidden aspect-[4/5]">
-                  <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Psikolog çalışırken" className="w-full h-full object-cover" />
+                  <img src="public/images/Psikolog Duygu Aksoy.webp" alt="Psikolog çalışırken" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-white p-4 shadow-lg rounded-lg max-w-xs">
                   <p className="text-gray-800 font-medium transition-opacity duration-500">
