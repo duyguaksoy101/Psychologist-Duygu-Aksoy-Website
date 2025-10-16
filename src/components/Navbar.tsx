@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Instagram } from 'lucide-react';
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const blogUrl = `https://${import.meta.env?.VITE_HASHNODE_HOST || 'blog.example.com'}`;
+  // DEĞİŞİKLİK: blogUrl güncellendi
+  const blogUrl = '/blog';
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -13,8 +16,10 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
+
   const navLinks = [{
     name: 'Ana Sayfa',
     path: '/'
@@ -24,23 +29,27 @@ const Navbar = () => {
   }, {
     name: 'Blog',
     path: blogUrl,
-    external: true
+    external: true // external: true kalabilir, linkin bir React yolu olmadığını belirtir.
   }, {
     name: 'İletişime Geçin',
     path: '/contact'
   }];
+
   const socialLinks = [{
     icon: <Instagram size={18} />,
     url: 'https://instagram.com/'
   }];
+
   const renderNavLink = (link: {
     name: string;
     path: string;
     external?: boolean;
   }, isMobile = false) => {
     const className = isMobile ? `text-sm font-medium py-2 transition-colors hover:text-gray-500 ${location.pathname === link.path && !link.external ? 'text-black' : 'text-gray-600'}` : `text-sm font-medium transition-colors hover:text-gray-500 ${location.pathname === link.path && !link.external ? 'text-black' : 'text-gray-600'}`;
+    
+    // DEĞİŞİKLİK: Blog linki artık target="_blank" olmadan normal bir <a> etiketi.
     if (link.external) {
-      return <a key={link.name} href={link.path} target="_blank" rel="noopener noreferrer" className={className} onClick={closeMenu}>
+      return <a key={link.name} href={link.path} rel="noopener noreferrer" className={className} onClick={closeMenu}>
           {link.name}
         </a>;
     }
@@ -48,6 +57,7 @@ const Navbar = () => {
         {link.name}
       </Link>;
   };
+
   return <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-sm py-3' : 'bg-transparent py-5'}`}>
       <div className="container mx-auto px-4 md:px-6">
         <nav className="flex justify-between items-center">
@@ -85,3 +95,4 @@ const Navbar = () => {
     </header>;
 };
 export default Navbar;
+
