@@ -1,15 +1,15 @@
 {
   "rewrites": [
     {
-      "source": "/_next/:path*",
+      "source": "/blog/_next/:path*",
       "destination": "https://blog-on-hashnode.vercel.app/_next/:path*"
     },
     {
-      "source": "/static/:path*",
+      "source": "/blog/static/:path*",
       "destination": "https://blog-on-hashnode.vercel.app/static/:path*"
     },
     {
-      "source": "/images/:path*",
+      "source": "/blog/images/:path*",
       "destination": "https://blog-on-hashnode.vercel.app/images/:path*"
     },
     {
