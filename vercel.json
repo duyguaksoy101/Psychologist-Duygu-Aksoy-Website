@@ -1,14 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "not",
-          "key": "pathname",
-          "value": "^/api/.*$"
-        }
-      ],
+      "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
   ]
