@@ -1,13 +1,12 @@
-
 {
   "rewrites": [
     {
       "source": "/blog",
-      "destination": "https://blog.psikologduyguaksoy.com"
+      "destination": "https://blog-on-hashnode.vercel.app/blog"
     },
     {
       "source": "/blog/:path*",
-      "destination": "https://blog.psikologduyguaksoy.com/:path*"
+      "destination": "https://blog-on-hashnode.vercel.app/:path*"
     }
   ]
 }
