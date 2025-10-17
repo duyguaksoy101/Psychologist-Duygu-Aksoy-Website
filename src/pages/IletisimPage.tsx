@@ -1,13 +1,33 @@
 import React, { useEffect, createElement } from 'react';
 import { Phone, Mail, Clock, Send } from 'lucide-react';
 const ContactPage = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.body.appendChild(script);
+useEffect(() => {
+    // Mevcut Calendly script'i
+    const calendlyScript = document.createElement('script');
+    calendlyScript.src = 'https://assets.calendly.com/assets/external/widget.js';
+    calendlyScript.async = true;
+    document.body.appendChild(calendlyScript);
+    const formsappScript = document.createElement('script');
+    formsappScript.src = 'https://forms.app/cdn/embed.js';
+    formsappScript.async = true;
+    formsappScript.defer = true;
+    
+    // Script yüklendikten sonra formu başlatan fonksiyon
+    formsappScript.onload = () => {
+      // @ts-ignore - formsapp'in global olarak eklendiğini varsayıyoruz
+      new formsapp('68f291d4a927120002ac0690', 'standard', {'width':'100%','height':'636px','opacity':0}, 'https://puc7gi5v.forms.app');
+    };
+    document.body.appendChild(formsappScript);
+    // --- YENİ EKLENECEK KISIM SONU ---
+
+    // Component kaldırıldığında her iki script'i de temizle
     return () => {
-      document.body.removeChild(script);
+      if (document.body.contains(calendlyScript)) {
+        document.body.removeChild(calendlyScript);
+      }
+      if (document.body.contains(formsappScript)) {
+        document.body.removeChild(formsappScript);
+      }
     };
   }, []);
   return <div className="w-full">
@@ -78,61 +98,13 @@ const ContactPage = () => {
                 </div>
               </div>
             </div>
-            {/* Contact Form */}
+{/* Forms.app Form Alanı */}
             <div className="w-full md:w-3/5">
               <h2 className="text-2xl font-medium text-gray-800 mb-6">
                 Mesaj Gönderin
               </h2>
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
-                      Ad
-                    </label>
-                    <input type="text" id="firstName" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" required />
-                  </div>
-                  <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
-                      Soyad
-                    </label>
-                    <input type="text" id="lastName" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" required />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    E-posta Adresi
-                  </label>
-                  <input type="email" id="email" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" required />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                    Telefon Numarası
-                  </label>
-                  <input type="tel" id="phone" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" />
-                </div>
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                    Konu
-                  </label>
-                  <select id="subject" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" required>
-                    <option value="">Lütfen seçiniz</option>
-                    <option value="booking">Seans Planla</option>
-                    <option value="question">Genel Soru</option>
-                    <option value="feedback">Geri Bildirim</option>
-                    <option value="other">Diğer</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    Mesaj
-                  </label>
-                  <textarea id="message" rows={5} className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" required></textarea>
-                </div>
-                <button type="submit" className="inline-flex items-center justify-center px-6 py-3 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition-colors">
-                  Mesaj Gönder
-                  <Send size={16} className="ml-2" />
-                </button>
-              </form>
+              {/* forms.app bu div'in içine formu yerleştirecek */}
+              <div formsappId="68f291d4a927120002ac0690"></div>
             </div>
           </div>
         </div>
