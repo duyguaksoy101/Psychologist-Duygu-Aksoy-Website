@@ -13,14 +13,11 @@ useEffect(() => {
     formsappScript.defer = true;
     
     // Script yüklendikten sonra formu başlatan fonksiyon
-    formsappScript.onload = () => {
-      // @ts-ignore - formsapp'in global olarak eklendiğini varsayıyoruz
-      new formsapp('68f291d4a927120002ac0690', 'standard', {'width':'100%','height':'636px','opacity':0}, 'https://puc7gi5v.forms.app');
+formsappScript.onload = () => {
+      // @ts-ignore
+      new formsapp('68f291d4a927120002ac0690', 'fullscreen', {'opacity':0}, 'https://puc7gi5v.forms.app');
     };
     document.body.appendChild(formsappScript);
-    // --- YENİ EKLENECEK KISIM SONU ---
-
-    // Component kaldırıldığında her iki script'i de temizle
     return () => {
       if (document.body.contains(calendlyScript)) {
         document.body.removeChild(calendlyScript);
