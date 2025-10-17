@@ -6,3 +6,15 @@
     }
   ]
 }
+{
+  "rewrites": [
+    {
+      "source": "/blog",
+      "destination": "https://https://blog-on-hashnode.vercel.app/blog"
+    },
+    {
+      "source": "/blog/:path*",
+      "destination": "https://https://blog-on-hashnode.vercel.app//blog/:path*"
+    }
+  ]
+}
