@@ -1,3 +1,5 @@
+// src/App.tsx DOSYASINDAKİ DEĞİŞİKLİKLER
+
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
@@ -23,10 +25,11 @@ export function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/privacy" element={<PrivacyPage />} />
-            <Route path="/terms" element={<TermsPage />} />
+            {/* DEĞİŞİKLİK BURADA */}
+            <Route path="/hakkimda" element={<AboutPage />} />
+            <Route path="/iletisim" element={<ContactPage />} />
+            <Route path="/gizlilik-politikasi" element={<PrivacyPage />} />
+            <Route path="/kullanim-sartlari" element={<TermsPage />} />
             <Route path="/blog" element={<BlogPage />} />
             {/* The route below is commented out because the BlogPostPage component is not yet created.
               Uncomment it after you create the component.
