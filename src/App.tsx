@@ -9,23 +9,34 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import NotFoundPage from './pages/NotFoundPage';
 import ScrollToTop from './components/ScrollToTop';
+import BlogPage from './pages/BlogPage'; // Import BlogPage
+
+// NOTE: The BlogPostPage component is missing. You will need to create it.
+// import BlogPostPage from './pages/BlogPostPage'; 
+
 export function App() {
-  return <>
+  return (
+    <>
       <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-white">
         <Navbar />
-<Routes>
-  <Route path="/" element={<HomePage />} />
-  <Route path="/about" element={<AboutPage />} />
-  <Route path="/contact" element={<ContactPage />} />
-  <Route path="/privacy" element={<PrivacyPage />} />
-  <Route path="/terms" element={<TermsPage />} />
-  <Route path="/blog" element={<BlogPage />} />
-  <Route path="/blog/:postId" element={<BlogPostPage />} /> {/* Add this for individual blog posts */}
-  <Route path="*" element={<NotFoundPage />} />
-</Routes>
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            {/* The route below is commented out because the BlogPostPage component is not yet created.
+              Uncomment it after you create the component.
+            */}
+            {/* <Route path="/blog/:postId" element={<BlogPostPage />} /> */}
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
         </main>
         <Footer />
       </div>
-    </>;
+    </>
+  );
 }
