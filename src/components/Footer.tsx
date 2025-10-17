@@ -31,14 +31,14 @@ const Footer = () => {
               <Link to="/" className="text-gray-600 hover:text-gray-800 text-sm">
                 Ana Sayfa
               </Link>
-              <Link to="/about" className="text-gray-600 hover:text-gray-800 text-sm">
+              <Link to="/hakkimda" className="text-gray-600 hover:text-gray-800 text-sm">
                 Hakkımda
               </Link>
               {/* DEĞİŞİKLİK: Blog linki güncellendi */}
               <a href={blogUrl} rel="noopener noreferrer" className="text-gray-600 hover:text-gray-800 text-sm">
                 Blog
               </a>
-              <Link to="/contact" className="text-gray-600 hover:text-gray-800 text-sm">
+              <Link to="/iletisim" className="text-gray-600 hover:text-gray-800 text-sm">
                 İletişim
               </Link>
             </div>
@@ -50,12 +50,12 @@ const Footer = () => {
             <div className="flex flex-col space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone size={18} className="text-gray-600" />
-                <span className="text-gray-600 text-sm">+90 123 456 7890</span>
+                <span className="text-gray-600 text-sm">+90 505 818 9265</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={18} className="text-gray-600" />
                 <span className="text-gray-600 text-sm">
-                  contact@psikologduyguaksoy.com
+                  duyguaksoy101@gmail.com
                 </span>
               </div>
             </div>
@@ -66,10 +66,10 @@ const Footer = () => {
             © {currentYear} Psikolog Duygu Aksoy. Tüm hakları saklıdır.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/privacy" className="text-gray-500 hover:text-gray-800 text-sm">
+            <Link to="/gizlilik-politikasi" className="text-gray-500 hover:text-gray-800 text-sm">
               Gizlilik Politikası
             </Link>
-            <Link to="/terms" className="text-gray-500 hover:text-gray-800 text-sm">
+            <Link to="/kullanim-sartlari" className="text-gray-500 hover:text-gray-800 text-sm">
               Kullanım Şartları
             </Link>
           </div>
