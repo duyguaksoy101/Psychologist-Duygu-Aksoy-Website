@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import HomePage from './pages/Anasayfa';
+import HomePage from './pages/AnasayfaPage';
 // DEĞİŞİKLİK: Yeni dosya adları ve komponent adları ile importları güncelle
 import HakkimdaPage from './pages/HakkimdaPage';
 import IletisimPage from './pages/IletisimPage';
