@@ -51,44 +51,76 @@ const HomePage = () => {
     return () => clearInterval(interval);
   }, [quotes.length]);
 
-// src/pages/HomePage.tsx için son ve doğru kod
-
-// src/pages/HomePage.tsx için son, güvenli ve doğru kod
+// src/pages/HomePage.tsx için son ve çalışan kod
 
 useEffect(() => {
   const fetchPosts = async () => {
-    // Önbellek mantığı aynı kalıyor...
+    // 1. Önbelleği kontrol et
     try {
       const cachedData = localStorage.getItem('hashnodePosts');
       if (cachedData) {
         const { posts: cachedPosts, timestamp } = JSON.parse(cachedData);
+        // Önbellek 1 saat geçerli
         if (new Date().getTime() - timestamp < 3600 * 1000) {
-          setPosts(cachedPosts); setLoading(false); return;
+          setPosts(cachedPosts);
+          setLoading(false);
+          return;
         }
       }
-    } catch (error) { localStorage.removeItem('hashnodePosts'); }
+    } catch (error) {
+      // Bozuk önbelleği temizle
+      localStorage.removeItem('hashnodePosts');
+    }
 
-    // API'den veri çekme...
+    // 2. API'den veri çek
     try {
-      // DİKKAT: Artık kendi API'mize istek atıyoruz
-      const response = await fetch('/api/hashnode', {
-        method: 'POST',
-      });
+      // DEĞERLERİ DOĞRUDAN KODA YAZIYORUZ
+      const host = "blog.psikologduyguaksoy.com";
+      const token = "38b1022f-d114-4182-9fa2-c78d8dfed0c5";
 
-      if (!response.ok) {
-        throw new Error(`API isteği başarısız: ${response.statusText}`);
-      }
+      const query = `
+        query Publication {
+          publication(host: "${host}") {
+            posts(first: 3) {
+              edges {
+                node {
+                  title
+                  brief
+                  url
+                  coverImage { url }
+                  publishedAt
+                }
+              }
+            }
+          }
+        }
+      `;
+
+      const response = await fetch('https://gql.hashnode.com/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ query }),
+      });
 
       const result = await response.json();
 
-      if (result.errors) throw new Error(result.errors.map((e: any) => e.message).join(', '));
-      const fetchedPosts = result.data?.publication?.posts?.edges.map((edge: any) => edge.node);
-      if (!fetchedPosts) throw new Error("API'den beklenen veri yapısı alınamadı.");
+      if (result.errors) {
+        throw new Error(result.errors.map(e => e.message).join(', '));
+      }
 
+      const fetchedPosts = result.data.publication.posts.edges.map(edge => edge.node);
       setPosts(fetchedPosts);
-      localStorage.setItem('hashnodePosts', JSON.stringify({ posts: fetchedPosts, timestamp: new Date().getTime() }));
 
-    } catch (err: any) {
+      // Veriyi önbelleğe kaydet
+      localStorage.setItem('hashnodePosts', JSON.stringify({
+        posts: fetchedPosts,
+        timestamp: new Date().getTime(),
+      }));
+
+    } catch (err) {
       console.error("Blog yazıları çekilirken hata:", err);
       setError(err.message);
     } finally {
