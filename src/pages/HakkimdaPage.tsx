@@ -13,7 +13,7 @@ const AboutPage = () => {
                 Hakkımda
               </h1>
               <p className="text-gray-600 text-lg mb-6">
-                Hayatın zorluklarıyla başa çıkmanız ve ruh sağlığınızı güçlendirmeniz için yanınızdayım. Her bireyin yaşam yolculuğunun ve ihtiyaçlarının benzersiz olduğuna inanıyor, size özel çözümler ve samimi bir yaklaşım sunuyorum.
+                Hayatın zorluklarıyla başa çıkmanız ve ruh sağlığınızı güçlendirmeniz için yanınızdayım. Her bireyin yaşam yolculuğunun ve ihtiyaçlarının benzersiz olduğuna inanıyorum.
               </p>
             </div>
             <div className="w-full md:w-1/2">
