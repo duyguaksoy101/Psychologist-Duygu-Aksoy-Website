@@ -51,13 +51,15 @@ const HomePage = () => {
     return () => clearInterval(interval);
   }, [quotes.length]);
 
+// src/pages/HomePage.tsx dosyasını bu kodla güncelleyin
+
   useEffect(() => {
     const fetchPosts = async () => {
-      // Caching logic: Check if we have recent posts in localStorage
+      // Önbellek kontrolü aynı kalıyor
       const cachedData = localStorage.getItem('hashnodePosts');
       if (cachedData) {
         const { posts: cachedPosts, timestamp } = JSON.parse(cachedData);
-        const isCacheValid = new Date().getTime() - timestamp < 24 * 60 * 60 * 1000; // 24 hours
+        const isCacheValid = new Date().getTime() - timestamp < 24 * 60 * 60 * 1000;
         
         if (isCacheValid) {
           setPosts(cachedPosts);
@@ -66,10 +68,15 @@ const HomePage = () => {
         }
       }
 
-      // If no valid cache, fetch from API
+      // DEĞİŞTİRİLDİ: Hashnode host'u için daha güvenli bir geri dönüş (fallback) adresi eklendi.
+      const host = import.meta.env?.VITE_HASHNODE_HOST || 'blog.psikologduyguaksoy.com';
+      
+      // YENİ EKLENDİ: Hangi host ile veri çekmeye çalıştığımızı konsola yazdıralım.
+      console.log('Blog yazıları şu host için çekiliyor:', host);
+
       const GET_USER_ARTICLES = `
         query Publication {
-          publication(host: "${import.meta.env?.VITE_HASHNODE_HOST || 'psikologduyguaksoy.com/blog'}") {
+          publication(host: "${host}") {
             posts(first: 3) {
               edges {
                 node {
@@ -99,21 +106,35 @@ const HomePage = () => {
 
         const result = await response.json();
         
+        // YENİ EKLENDİ: API'den gelen ham yanıtı konsola yazdıralım. Sorunun kaynağını burada görebiliriz.
+        console.log('Hashnode API Ham Yanıtı:', result);
+
         if (result.errors) {
           throw new Error(result.errors.map((e: any) => e.message).join(', '));
         }
+        
+        // YENİ EKLENDİ: Verinin var olup olmadığını kontrol edelim.
+        if (!result.data || !result.data.publication || !result.data.publication.posts) {
+          console.error('API yanıtında beklenen veri yapısı bulunamadı.');
+          throw new Error('API yanıtı beklenen formatta değil.');
+        }
 
         const fetchedPosts = result.data.publication.posts.edges.map((edge: any) => edge.node);
+        
+        // YENİ EKLENDİ: İşlenmiş ve listelenmeye hazır yazı dizisini konsola yazdıralım.
+        console.log('İşlenmiş Blog Yazıları:', fetchedPosts);
+        
         setPosts(fetchedPosts);
         
-        // Save new data and timestamp to localStorage
         localStorage.setItem('hashnodePosts', JSON.stringify({
           posts: fetchedPosts,
           timestamp: new Date().getTime()
         }));
+
       } catch (err: any) {
         setError(err.message);
-        console.error('Failed to fetch Hashnode posts:', err);
+        // YENİ EKLENDİ: Hata durumunda detayı konsola yazdıralım.
+        console.error('Hashnode yazıları çekilirken bir hata oluştu:', err);
       } finally {
         setLoading(false);
       }
