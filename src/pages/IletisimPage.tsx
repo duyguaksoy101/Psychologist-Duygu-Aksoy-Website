@@ -198,5 +198,6 @@ const IletisimPage = () => {
         </div>
       </section>
     </div>;
+);
 };
 export default ContactPage;
