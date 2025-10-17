@@ -51,96 +51,77 @@ const HomePage = () => {
     return () => clearInterval(interval);
   }, [quotes.length]);
 
-// src/pages/HomePage.tsx dosyasını bu kodla güncelleyin
+// src/pages/HomePage.tsx için son teşhis kodu
 
-// src/pages/HomePage.tsx için nihai, güvenli useEffect kodu
+useEffect(() => {
+  // Tüm dış bağımlılıkları ortadan kaldırıyoruz.
+  const fetchPostsHardcoded = async () => {
+    console.log("--- Teşhis Kodu Çalışıyor: Tüm değerler hardcoded. ---");
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      // 1. ADIM: Önbelleği güvenli bir şekilde okumaya çalış
-      try {
-        const cachedData = localStorage.getItem('hashnodePosts');
-        if (cachedData) {
-          const { posts: cachedPosts, timestamp } = JSON.parse(cachedData);
-          const isCacheValid = new Date().getTime() - timestamp < 24 * 60 * 60 * 1000; // 24 saat geçerli
+    setLoading(true); // Yüklenme durumunu başlat
 
-          if (isCacheValid) {
-            console.log("Geçerli önbellek bulundu, yazılar oradan yükleniyor.", cachedPosts);
-            setPosts(cachedPosts);
-            setLoading(false);
-            return; // Fonksiyonu burada bitir, API'ye gitme
-          }
-        }
-      } catch (error) {
-        console.warn("Önbellek okunurken hata oluştu, bu normal bir durum olabilir. Önbellek temizleniyor.", error);
-        // Hatalı veya bozuk veriyi temizle
-        localStorage.removeItem('hashnodePosts');
-      }
+    try {
+      // .env dosyası yerine değerleri doğrudan yazıyoruz
+      const host = "blog.psikologduyguaksoy.com";
+      const token = "38b1022f-d114-4182-9fa2-c78d8dfed0c5";
 
-      // 2. ADIM: Önbellek yoksa veya geçersizse API'den veri çek
-      try {
-        const host = import.meta.env?.VITE_HASHNODE_HOST || 'blog.psikologduyguaksoy.com';
-        console.log('Önbellek bulunamadı veya geçersiz. Yazılar API\'den çekiliyor. Host:', host);
+      console.log(`API'ye istek gönderiliyor. Host: ${host}`);
 
-        const GET_USER_ARTICLES = `
-          query Publication {
-            publication(host: "${host}") {
-              posts(first: 3) {
-                edges {
-                  node {
-                    title
-                    brief
+      const GET_USER_ARTICLES = `
+        query Publication {
+          publication(host: "${host}") {
+            posts(first: 3) {
+              edges {
+                node {
+                  title
+                  brief
+                  url
+                  coverImage {
                     url
-                    coverImage {
-                      url
-                    }
-                    publishedAt
                   }
+                  publishedAt
                 }
               }
             }
           }
-        `;
-
-        const response = await fetch('https://gql.hashnode.com/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${import.meta.env?.VITE_HASHNODE_API_TOKEN || ''}`
-          },
-          body: JSON.stringify({ query: GET_USER_ARTICLES })
-        });
-
-        const result = await response.json();
-
-        if (result.errors) {
-          throw new Error(result.errors.map((e: any) => e.message).join(', '));
         }
+      `;
 
-        if (!result.data?.publication?.posts) {
-            throw new Error("API'den beklenen veri yapısı alınamadı.");
-        }
+      const response = await fetch('https://gql.hashnode.com/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // Token'ı doğrudan kullanıyoruz
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ query: GET_USER_ARTICLES })
+      });
 
-        const fetchedPosts = result.data.publication.posts.edges.map((edge: any) => edge.node);
-        console.log("API'den başarıyla çekilen yazılar:", fetchedPosts);
-        setPosts(fetchedPosts);
+      const result = await response.json();
 
-        // Yeni çekilen veriyi önbelleğe kaydet
-        localStorage.setItem('hashnodePosts', JSON.stringify({
-          posts: fetchedPosts,
-          timestamp: new Date().getTime()
-        }));
+      console.log("API'den Gelen Ham Yanıt:", result);
 
-      } catch (err: any) {
-        console.error("Hashnode yazıları çekilirken bir hata oluştu:", err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
+      if (result.errors) {
+        throw new Error(result.errors.map((e: any) => e.message).join(', '));
       }
-    };
 
-    fetchPosts();
-  }, []);
+      const fetchedPosts = result.data.publication.posts.edges.map((edge: any) => edge.node);
+      console.log("İşlenmiş Yazılar:", fetchedPosts);
+      
+      setPosts(fetchedPosts);
+
+    } catch (err: any) {
+      console.error("Teşhis sırasında HATA YAKALANDI:", err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
+      console.log("--- Teşhis Kodu Tamamlandı. ---");
+    }
+  };
+
+  fetchPostsHardcoded();
+
+}, []); // Boş dizi sayesinde sadece bir kere çalışır
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
