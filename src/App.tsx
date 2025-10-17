@@ -14,16 +14,16 @@ export function App() {
       <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-white">
         <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/privacy" element={<PrivacyPage />} />
-            <Route path="/terms" element={<TermsPage />} />
-            {/* The old blog page is removed, and a 404 catch-all route is added */}
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
+<Routes>
+  <Route path="/" element={<HomePage />} />
+  <Route path="/about" element={<AboutPage />} />
+  <Route path="/contact" element={<ContactPage />} />
+  <Route path="/privacy" element={<PrivacyPage />} />
+  <Route path="/terms" element={<TermsPage />} />
+  <Route path="/blog" element={<BlogPage />} />
+  <Route path="/blog/:postId" element={<BlogPostPage />} /> {/* Add this for individual blog posts */}
+  <Route path="*" element={<NotFoundPage />} />
+</Routes>
         </main>
         <Footer />
       </div>
