@@ -1,33 +1,48 @@
-import React, { useEffect, createElement } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Phone, Mail, Clock, Send } from 'lucide-react';
-const ContactPage = () => {
-useEffect(() => {
-    // Mevcut Calendly script'i
+
+const IletisimPage = () => {
+  // --- WEB3FORMS İÇİN GEREKLİ KODLAR ---
+  const [result, setResult] = useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Gönderiliyor....");
+    const formData = new FormData(event.target);
+    formData.append("access_key", "7608960c-4cc5-4e4a-8b88-fe36f84b6e4e");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form başarıyla gönderildi!");
+      event.target.reset();
+    } else {
+      console.log("Hata", data);
+      setResult(data.message || "Bir hata oluştu.");
+    }
+  };
+  // --- WEB3FORMS KODU SONU ---
+
+  // Sadece Calendly için useEffect
+  useEffect(() => {
     const calendlyScript = document.createElement('script');
     calendlyScript.src = 'https://assets.calendly.com/assets/external/widget.js';
     calendlyScript.async = true;
     document.body.appendChild(calendlyScript);
-    const formsappScript = document.createElement('script');
-    formsappScript.src = 'https://forms.app/cdn/embed.js';
-    formsappScript.async = true;
-    formsappScript.defer = true;
-    
-    // Script yüklendikten sonra formu başlatan fonksiyon
-formsappScript.onload = () => {
-      // @ts-ignore - formsapp'in global olarak eklendiğini varsayıyoruz
-      new formsapp('68f291d4a927120002ac0690', 'standard', {'width':'100%','height':'636px','opacity':0}, 'https://puc7gi5v.forms.app');
-    };
-    document.body.appendChild(formsappScript);;
     return () => {
       if (document.body.contains(calendlyScript)) {
         document.body.removeChild(calendlyScript);
       }
-      if (document.body.contains(formsappScript)) {
-        document.body.removeChild(formsappScript);
-      }
     };
   }, []);
-  return <div className="w-full">
+
+  return (
+    <div className="w-full">
       {/* Hero Section */}
       <section className="pt-32 pb-16 md:pt-40 md:pb-20 px-4">
         <div className="container mx-auto max-w-5xl">
@@ -42,11 +57,12 @@ formsappScript.onload = () => {
           </div>
         </div>
       </section>
+
       {/* Contact Information & Form */}
       <section className="py-12 px-4">
         <div className="container mx-auto max-w-5xl">
           <div className="flex flex-col md:flex-row gap-12">
-            {/* Contact Information */}
+            {/* İletişim Bilgileri (Aynı kalıyor) */}
             <div className="w-full md:w-2/5">
               <h2 className="text-2xl font-medium text-gray-800 mb-6">
                 İletişim Bilgileri
@@ -80,28 +96,54 @@ formsappScript.onload = () => {
                   </div>
                 </div>
               </div>
-              <div className="mt-8 pt-8 border-t border-gray-200">
-                <h3 className="font-medium text-gray-800 mb-4">
-                  Beni Takip Edin
-                </h3>
-                <div className="flex space-x-4">
-                  <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="bg-gray-100 hover:bg-gray-200 p-3 rounded-full transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
-                  </a>
-                </div>
-              </div>
             </div>
-{/* Forms.app Form Alanı */}
+            
+            {/* DEĞİŞTİRİLDİ: Form Alanı web3forms ile çalışacak şekilde güncellendi */}
             <div className="w-full md:w-3/5">
               <h2 className="text-2xl font-medium text-gray-800 mb-6">
                 Mesaj Gönderin
               </h2>
-              {/* forms.app bu div'in içine formu yerleştirecek */}
-              <div formsappId="68f291d4a927120002ac0690"></div>
+              <form onSubmit={onSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">Ad</label>
+                    <input type="text" id="firstName" name="Ad" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" required />
+                  </div>
+                  <div>
+                    <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">Soyad</label>
+                    <input type="text" id="lastName" name="Soyad" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" required />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">E-posta Adresi</label>
+                  <input type="email" id="email" name="E-posta" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" required />
+                </div>
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Telefon Numarası</label>
+                  <input type="tel" id="phone" name="Telefon" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" />
+                </div>
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Konu</label>
+                  <select id="subject" name="Konu" className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" required>
+                    <option value="">Lütfen seçiniz</option>
+                    <option value="Seans Planlama">Seans Planlama</option>
+                    <option value="Genel Soru">Genel Soru</option>
+                    <option value="Geri Bildirim">Geri Bildirim</option>
+                    <option value="Diğer">Diğer</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Mesaj</label>
+                  <textarea id="message" name="Mesaj" rows={5} className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" required></textarea>
+                </div>
+                <div className="flex items-center">
+                  <button type="submit" className="inline-flex items-center justify-center px-6 py-3 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition-colors">
+                    Mesaj Gönder
+                    <Send size={16} className="ml-2" />
+                  </button>
+                  <span className="ml-4 text-sm text-gray-600">{result}</span>
+                </div>
+              </form>
             </div>
           </div>
         </div>
