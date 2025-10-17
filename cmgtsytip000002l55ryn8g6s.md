@@ -2,7 +2,7 @@
 title: "Hafta Sonu Yalnızlığı: Plan Yapma Kaygısı"
 seoTitle: "Hafta Sonu Plan Kaygısı Üzerine Düşünceler"
 seoDescription: "FOMO ve sosyal medya etkileriyle başa çıkmanın yollarını keşfedin. Hafta sonu yalnızlığınızla yüzleşirken kendinize yatırım yapın"
-datePublished: Thu Oct 16 2025 19:18:20 GMT+0000 (Coordinated Universal Time)
+datePublished: Tue Oct 14 2025 21:00:00 GMT+0000 (Coordinated Universal Time)
 cuid: cmgtsytip000002l55ryn8g6s
 slug: hafta-sonu-yalnizligi-plan-yapma-kaygisi
 cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1760642204067/3a05dea6-9ffb-40a9-bb62-a0b78d8038cf.webp
