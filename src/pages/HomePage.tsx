@@ -167,14 +167,14 @@ const HomePage = () => {
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <Link
-                  to="/contact"
+                  to="/iletisim"
                   className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-gray-800 rounded-md hover:bg-gray-700 transition-colors"
                 >
                   Randevu Oluşturun
                   <ArrowRight size={16} className="ml-2" />
                 </Link>
                 <Link
-                  to="/about"
+                  to="/hakkimda"
                   className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-gray-800 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
                 >
                   Bilgi Alın
@@ -264,7 +264,7 @@ const HomePage = () => {
                   </h3>
                   <p className="text-gray-600 mb-4">{service.description}</p>
                   <Link
-                    to="/about"
+                    to="/hakkimda"
                     className="inline-flex items-center text-sm font-medium text-gray-800 hover:text-gray-600"
                   >
                     Daha fazla bilgi
@@ -311,7 +311,7 @@ const HomePage = () => {
                 Şimdi, edindiğim bu birikimi klinik psikoloji alanına taşıyorum. İnsan zihninin, ilişkilerin ve değişimin derinliklerini keşfetmeye yönelik tutkumla, Klinik Psikoloji Yüksek Lisans eğitimimi tamamlamak üzereyim. Her adımda, hem bilimsel temellere dayalı hem de insana dokunan bir psikolog olma hedefiyle ilerliyorum.
               </p>
               <Link
-                to="/about"
+                to="/hakkimda"
                 className="inline-flex items-center px-6 py-3 text-sm font-medium text-gray-800 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
               >
                 Hakkımda Daha Fazla
