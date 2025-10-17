@@ -51,37 +51,40 @@ const HomePage = () => {
     return () => clearInterval(interval);
   }, [quotes.length]);
 
-// src/pages/HomePage.tsx için son teşhis kodu
+// src/pages/HomePage.tsx için son ve doğru kod
 
 useEffect(() => {
-  // Tüm dış bağımlılıkları ortadan kaldırıyoruz.
-  const fetchPostsHardcoded = async () => {
-    console.log("--- Teşhis Kodu Çalışıyor: Tüm değerler hardcoded. ---");
-
-    setLoading(true); // Yüklenme durumunu başlat
-
+  const fetchPosts = async () => {
+    // Önbelleği güvenli bir şekilde temizle ve oku
     try {
-      // .env dosyası yerine değerleri doğrudan yazıyoruz
-      const host = "blog.psikologduyguaksoy.com";
-      const token = "38b1022f-d114-4182-9fa2-c78d8dfed0c5";
+      const cachedData = localStorage.getItem('hashnodePosts');
+      if (cachedData) {
+        const { posts: cachedPosts, timestamp } = JSON.parse(cachedData);
+        const isCacheValid = new Date().getTime() - timestamp < 3600 * 1000; // 1 saatlik önbellek
+        if (isCacheValid) {
+          setPosts(cachedPosts);
+          setLoading(false);
+          return;
+        }
+      }
+    } catch (error) {
+      localStorage.removeItem('hashnodePosts');
+    }
 
-      console.log(`API'ye istek gönderiliyor. Host: ${host}`);
+    // API'den veri çek
+    try {
+      const host = import.meta.env.VITE_HASHNODE_HOST;
+      const token = import.meta.env.VITE_HASHNODE_API_TOKEN;
+
+      if (!host || !token) {
+        throw new Error(".env dosyasında VITE_HASHNODE_HOST ve VITE_HASHNODE_API_TOKEN bulunamadı. Lütfen sunucuyu yeniden başlatın.");
+      }
 
       const GET_USER_ARTICLES = `
         query Publication {
           publication(host: "${host}") {
             posts(first: 3) {
-              edges {
-                node {
-                  title
-                  brief
-                  url
-                  coverImage {
-                    url
-                  }
-                  publishedAt
-                }
-              }
+              edges { node { title, brief, url, coverImage { url }, publishedAt } }
             }
           }
         }
@@ -89,39 +92,33 @@ useEffect(() => {
 
       const response = await fetch('https://gql.hashnode.com/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          // Token'ı doğrudan kullanıyoruz
-          Authorization: `Bearer ${token}`
-        },
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({ query: GET_USER_ARTICLES })
       });
 
       const result = await response.json();
 
-      console.log("API'den Gelen Ham Yanıt:", result);
-
-      if (result.errors) {
-        throw new Error(result.errors.map((e: any) => e.message).join(', '));
-      }
+      if (result.errors) throw new Error(result.errors.map((e: any) => e.message).join(', '));
+      if (!result.data?.publication?.posts) throw new Error("API'den beklenen veri yapısı alınamadı.");
 
       const fetchedPosts = result.data.publication.posts.edges.map((edge: any) => edge.node);
-      console.log("İşlenmiş Yazılar:", fetchedPosts);
-      
       setPosts(fetchedPosts);
 
+      localStorage.setItem('hashnodePosts', JSON.stringify({
+        posts: fetchedPosts,
+        timestamp: new Date().getTime()
+      }));
+
     } catch (err: any) {
-      console.error("Teşhis sırasında HATA YAKALANDI:", err);
+      console.error("Blog yazıları çekilirken hata:", err);
       setError(err.message);
     } finally {
       setLoading(false);
-      console.log("--- Teşhis Kodu Tamamlandı. ---");
     }
   };
 
-  fetchPostsHardcoded();
-
-}, []); // Boş dizi sayesinde sadece bir kere çalışır
+  fetchPosts();
+}, []);
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
