@@ -14,10 +14,10 @@ useEffect(() => {
     
     // Script yüklendikten sonra formu başlatan fonksiyon
 formsappScript.onload = () => {
-      // @ts-ignore
-      new formsapp('68f291d4a927120002ac0690', 'fullscreen', {'opacity':0}, 'https://puc7gi5v.forms.app');
+      // @ts-ignore - formsapp'in global olarak eklendiğini varsayıyoruz
+      new formsapp('68f291d4a927120002ac0690', 'standard', {'width':'100%','height':'636px','opacity':0}, 'https://puc7gi5v.forms.app');
     };
-    document.body.appendChild(formsappScript);
+    document.body.appendChild(formsappScript);;
     return () => {
       if (document.body.contains(calendlyScript)) {
         document.body.removeChild(calendlyScript);
