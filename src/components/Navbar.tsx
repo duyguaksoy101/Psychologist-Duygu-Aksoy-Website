@@ -21,18 +21,18 @@ const Navbar = () => {
   const closeMenu = () => setIsMenuOpen(false);
 
   const navLinks = [{
-    name: 'Ana Sayfa',
+    name: 'Anasayfa',
     path: '/'
   }, {
     name: 'Hakkımda',
-    path: '/about'
+    path: '/hakkimda'
   }, {
     name: 'Blog',
     path: blogUrl,
     external: true // external: true kalabilir, linkin bir React yolu olmadığını belirtir.
   }, {
     name: 'İletişime Geçin',
-    path: '/contact'
+    path: '/iletisim'
   }];
 
   const socialLinks = [{
