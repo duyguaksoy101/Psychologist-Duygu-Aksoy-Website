@@ -98,7 +98,7 @@ const IletisimPage = () => {
               </div>
             </div>
             
-            {/* DEĞİŞTİRİLDİ: Form Alanı web3forms ile çalışacak şekilde güncellendi */}
+            {/* Form Alanı */}
             <div className="w-full md:w-3/5">
               <h2 className="text-2xl font-medium text-gray-800 mb-6">
                 Mesaj Gönderin
@@ -148,6 +148,7 @@ const IletisimPage = () => {
           </div>
         </div>
       </section>
+
       {/* Calendly Widget Section */}
       <section className="py-12 px-4">
         <div className="container mx-auto max-w-5xl">
@@ -166,6 +167,7 @@ const IletisimPage = () => {
         }}></div>
         </div>
       </section>
+      
       {/* FAQ Section */}
       <section className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto max-w-3xl">
@@ -197,7 +199,9 @@ const IletisimPage = () => {
           </div>
         </div>
       </section>
-    </div>;
-);
+    </div>
+  );
 };
-export default ContactPage;
+
+// Hatayı düzelttim: Dosya adıyla uyumlu olması için export adını da 'IletisimPage' yaptım.
+export default IletisimPage;
