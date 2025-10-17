@@ -16,7 +16,7 @@ const BookingCTA: React.FC<BookingCTAProps> = ({
           Kişisel gelişim ve esenliğe doğru ilk adımı atın. Süreç boyunca sizi
           desteklemek için buradayım.
         </p>
-        <Link to="/contact" className="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-gray-800 rounded-md hover:bg-gray-700 transition-colors">
+        <Link to="/iletisim" className="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-gray-800 rounded-md hover:bg-gray-700 transition-colors">
           Randevu Oluşturun
           <ArrowRight size={16} className="ml-2" />
         </Link>
