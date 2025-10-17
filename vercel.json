@@ -6,15 +6,14 @@
     }
   ]
 }
-{
-  "rewrites": [
-    {
-      "source": "/blog",
-      "destination": "https://https://blog-on-hashnode.vercel.app/blog"
-    },
-    {
-      "source": "/blog/:path*",
-      "destination": "https://https://blog-on-hashnode.vercel.app//blog/:path*"
-    }
-  ]
-}
+async rewrites() { 
+    return [ 
+      {  
+         source: "/blog", 
+         destination: "https://https://blog-on-hashnode.vercel.app/blog", -> Replace https://starter-kit-rose-seven.vercel.app with your own Vercel deployment URL from step 1 
+      }, 
+      { 
+         source: "/blog/:path*", destination: "https://https://blog-on-hashnode.vercel.app/blog/:path*", -> Replace https://starter-kit-rose-seven.vercel.app with your own Vercel deployment URL from step 1
+      }, 
+    ]; 
+},
