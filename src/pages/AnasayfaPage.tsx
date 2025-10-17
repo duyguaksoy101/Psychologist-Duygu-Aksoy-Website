@@ -53,48 +53,55 @@ const HomePage = () => {
 
 // src/pages/HomePage.tsx dosyasını bu kodla güncelleyin
 
+// src/pages/HomePage.tsx için nihai, güvenli useEffect kodu
+
   useEffect(() => {
     const fetchPosts = async () => {
-      // Önbellek kontrolü aynı kalıyor
-      const cachedData = localStorage.getItem('hashnodePosts');
-      if (cachedData) {
-        const { posts: cachedPosts, timestamp } = JSON.parse(cachedData);
-        const isCacheValid = new Date().getTime() - timestamp < 24 * 60 * 60 * 1000;
-        
-        if (isCacheValid) {
-          setPosts(cachedPosts);
-          setLoading(false);
-          return;
+      // 1. ADIM: Önbelleği güvenli bir şekilde okumaya çalış
+      try {
+        const cachedData = localStorage.getItem('hashnodePosts');
+        if (cachedData) {
+          const { posts: cachedPosts, timestamp } = JSON.parse(cachedData);
+          const isCacheValid = new Date().getTime() - timestamp < 24 * 60 * 60 * 1000; // 24 saat geçerli
+
+          if (isCacheValid) {
+            console.log("Geçerli önbellek bulundu, yazılar oradan yükleniyor.", cachedPosts);
+            setPosts(cachedPosts);
+            setLoading(false);
+            return; // Fonksiyonu burada bitir, API'ye gitme
+          }
         }
+      } catch (error) {
+        console.warn("Önbellek okunurken hata oluştu, bu normal bir durum olabilir. Önbellek temizleniyor.", error);
+        // Hatalı veya bozuk veriyi temizle
+        localStorage.removeItem('hashnodePosts');
       }
 
-      // DEĞİŞTİRİLDİ: Hashnode host'u için daha güvenli bir geri dönüş (fallback) adresi eklendi.
-      const host = import.meta.env?.VITE_HASHNODE_HOST || 'blog.psikologduyguaksoy.com';
-      
-      // YENİ EKLENDİ: Hangi host ile veri çekmeye çalıştığımızı konsola yazdıralım.
-      console.log('Blog yazıları şu host için çekiliyor:', host);
+      // 2. ADIM: Önbellek yoksa veya geçersizse API'den veri çek
+      try {
+        const host = import.meta.env?.VITE_HASHNODE_HOST || 'blog.psikologduyguaksoy.com';
+        console.log('Önbellek bulunamadı veya geçersiz. Yazılar API\'den çekiliyor. Host:', host);
 
-      const GET_USER_ARTICLES = `
-        query Publication {
-          publication(host: "${host}") {
-            posts(first: 3) {
-              edges {
-                node {
-                  title
-                  brief
-                  url
-                  coverImage {
+        const GET_USER_ARTICLES = `
+          query Publication {
+            publication(host: "${host}") {
+              posts(first: 3) {
+                edges {
+                  node {
+                    title
+                    brief
                     url
+                    coverImage {
+                      url
+                    }
+                    publishedAt
                   }
-                  publishedAt
                 }
               }
             }
           }
-        }
-      `;
+        `;
 
-      try {
         const response = await fetch('https://gql.hashnode.com/', {
           method: 'POST',
           headers: {
@@ -105,36 +112,28 @@ const HomePage = () => {
         });
 
         const result = await response.json();
-        
-        // YENİ EKLENDİ: API'den gelen ham yanıtı konsola yazdıralım. Sorunun kaynağını burada görebiliriz.
-        console.log('Hashnode API Ham Yanıtı:', result);
 
         if (result.errors) {
           throw new Error(result.errors.map((e: any) => e.message).join(', '));
         }
-        
-        // YENİ EKLENDİ: Verinin var olup olmadığını kontrol edelim.
-        if (!result.data || !result.data.publication || !result.data.publication.posts) {
-          console.error('API yanıtında beklenen veri yapısı bulunamadı.');
-          throw new Error('API yanıtı beklenen formatta değil.');
+
+        if (!result.data?.publication?.posts) {
+            throw new Error("API'den beklenen veri yapısı alınamadı.");
         }
 
         const fetchedPosts = result.data.publication.posts.edges.map((edge: any) => edge.node);
-        
-        // YENİ EKLENDİ: İşlenmiş ve listelenmeye hazır yazı dizisini konsola yazdıralım.
-        console.log('İşlenmiş Blog Yazıları:', fetchedPosts);
-        
+        console.log("API'den başarıyla çekilen yazılar:", fetchedPosts);
         setPosts(fetchedPosts);
-        
+
+        // Yeni çekilen veriyi önbelleğe kaydet
         localStorage.setItem('hashnodePosts', JSON.stringify({
           posts: fetchedPosts,
           timestamp: new Date().getTime()
         }));
 
       } catch (err: any) {
+        console.error("Hashnode yazıları çekilirken bir hata oluştu:", err);
         setError(err.message);
-        // YENİ EKLENDİ: Hata durumunda detayı konsola yazdıralım.
-        console.error('Hashnode yazıları çekilirken bir hata oluştu:', err);
       } finally {
         setLoading(false);
       }
