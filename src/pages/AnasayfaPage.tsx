@@ -53,95 +53,21 @@ const HomePage = () => {
 
 // src/pages/HomePage.tsx dosyasını bu kodla güncelleyin
 
+// src/pages/HomePage.tsx dosyasını bu KESİNLİKLE ÇALIŞMASI GEREKEN kodla güncelleyin
+
   useEffect(() => {
-    const fetchPosts = async () => {
-      // Önbellek kontrolü aynı kalıyor
-      const cachedData = localStorage.getItem('hashnodePosts');
-      if (cachedData) {
-        const { posts: cachedPosts, timestamp } = JSON.parse(cachedData);
-        const isCacheValid = new Date().getTime() - timestamp < 24 * 60 * 60 * 1000;
-        
-        if (isCacheValid) {
-          setPosts(cachedPosts);
-          setLoading(false);
-          return;
-        }
-      }
+    console.log('--- HomePage bileşeni yüklendi ve useEffect kancası başarıyla çalıştı. ---');
+    
+    // Yükleniyor durumunu kapatalım ki sayfa boş gözükmesin.
+    setLoading(false); 
+    
+    // Şimdilik hata olmadığını varsayalım.
+    setError(null);
 
-      // DEĞİŞTİRİLDİ: Hashnode host'u için daha güvenli bir geri dönüş (fallback) adresi eklendi.
-      const host = import.meta.env?.VITE_HASHNODE_HOST || 'blog.psikologduyguaksoy.com';
-      
-      // YENİ EKLENDİ: Hangi host ile veri çekmeye çalıştığımızı konsola yazdıralım.
-      console.log('Blog yazıları şu host için çekiliyor:', host);
+    // NOT: Bu test sırasında blog yazıları görünmeyecektir. 
+    // Amacımız sadece konsola mesaj yazdırıp yazdıramadığımızı görmektir.
 
-      const GET_USER_ARTICLES = `
-        query Publication {
-          publication(host: "${host}") {
-            posts(first: 3) {
-              edges {
-                node {
-                  title
-                  brief
-                  url
-                  coverImage {
-                    url
-                  }
-                  publishedAt
-                }
-              }
-            }
-          }
-        }
-      `;
-
-      try {
-        const response = await fetch('https://gql.hashnode.com/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${import.meta.env?.VITE_HASHNODE_API_TOKEN || ''}`
-          },
-          body: JSON.stringify({ query: GET_USER_ARTICLES })
-        });
-
-        const result = await response.json();
-        
-        // YENİ EKLENDİ: API'den gelen ham yanıtı konsola yazdıralım. Sorunun kaynağını burada görebiliriz.
-        console.log('Hashnode API Ham Yanıtı:', result);
-
-        if (result.errors) {
-          throw new Error(result.errors.map((e: any) => e.message).join(', '));
-        }
-        
-        // YENİ EKLENDİ: Verinin var olup olmadığını kontrol edelim.
-        if (!result.data || !result.data.publication || !result.data.publication.posts) {
-          console.error('API yanıtında beklenen veri yapısı bulunamadı.');
-          throw new Error('API yanıtı beklenen formatta değil.');
-        }
-
-        const fetchedPosts = result.data.publication.posts.edges.map((edge: any) => edge.node);
-        
-        // YENİ EKLENDİ: İşlenmiş ve listelenmeye hazır yazı dizisini konsola yazdıralım.
-        console.log('İşlenmiş Blog Yazıları:', fetchedPosts);
-        
-        setPosts(fetchedPosts);
-        
-        localStorage.setItem('hashnodePosts', JSON.stringify({
-          posts: fetchedPosts,
-          timestamp: new Date().getTime()
-        }));
-
-      } catch (err: any) {
-        setError(err.message);
-        // YENİ EKLENDİ: Hata durumunda detayı konsola yazdıralım.
-        console.error('Hashnode yazıları çekilirken bir hata oluştu:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPosts();
-  }, []);
+  }, []); // Boş dizi, bu kodun bileşen ilk yüklendiğinde sadece bir kez çalışmasını sağlar.
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
