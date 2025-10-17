@@ -87,7 +87,7 @@ const AboutPage = () => {
             </div>
           </div>
           <div className="text-center">
-            <Link to="/contact" className="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-gray-800 rounded-md hover:bg-gray-700 transition-colors">
+            <Link to="/iletisim" className="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-gray-800 rounded-md hover:bg-gray-700 transition-colors">
               Danışmanlık Randevusu Alın
               <ArrowRight size={16} className="ml-2" />
             </Link>
