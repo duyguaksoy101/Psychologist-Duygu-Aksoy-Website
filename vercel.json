@@ -1,11 +1,14 @@
 {
   "rewrites": [
     {
-      "source": "/blog/:path*",
-      "destination": "https://blog.psikologduyguaksoy.com/:path*"
-    },
-    {
-      "source": "/((?!api/|_next/|_static/|_vercel|[\\w-]+\\.\\w+).*)",
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "not",
+          "key": "pathname",
+          "value": "^/api/.*$"
+        }
+      ],
       "destination": "/index.html"
     }
   ]
