@@ -1,39 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/blog/_next/static/:path*",
-      "destination": "https://blog-on-hashnode.vercel.app/_next/static/:path*"
-    },
-    {
-      "source": "/blog/_next/:path*",
-      "destination": "https://blog-on-hashnode.vercel.app/_next/:path*"
-    },
-    {
-      "source": "/blog/static/:path*",
-      "destination": "https://blog-on-hashnode.vercel.app/static/:path*"
-    },
-    {
-      "source": "/blog/images/:path*",
-      "destination": "https://blog-on-hashnode.vercel.app/images/:path*"
-    },
-    {
-      "source": "/blog/_vercel/:path*",
-      "destination": "https://blog-on-hashnode.vercel.app/_vercel/:path*"
-    },
-    {
-      "source": "/blog/favicon.ico",
-      "destination": "https://blog-on-hashnode.vercel.app/favicon.ico"
-    },
-    {
-      "source": "/blog",
-      "destination": "https://blog-on-hashnode.vercel.app/"
-    },
-    {
-      "source": "/blog/:path*",
-      "destination": "https://blog-on-hashnode.vercel.app/:path*"
-    },
-    {
-      "source": "/((?!api|_next/static|favicon.ico|blog).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
