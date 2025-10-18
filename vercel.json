@@ -1,24 +1,16 @@
 {
   "rewrites": [
     {
-      "source": "/blog/_next/:path*",
-      "destination": "https://blog-on-hashnode.vercel.app/_next/:path*"
-    },
-    {
-      "source": "/blog/static/:path*",
-      "destination": "https://blog-on-hashnode.vercel.app/static/:path*"
-    },
-    {
-      "source": "/blog/images/:path*",
-      "destination": "https://blog-on-hashnode.vercel.app/images/:path*"
-    },
-    {
       "source": "/blog",
       "destination": "https://blog-on-hashnode.vercel.app/blog"
     },
     {
       "source": "/blog/:path*",
-      "destination": "https://blog-on-hashnode.vercel.app/:path*"
+      "destination": "https://blog-on-hashnode.vercel.app/blog/:path*"
+    },
+    {
+      "source": "/_next/:path*",
+      "destination": "https://blog-on-hashnode.vercel.app/_next/:path*"
     },
     {
       "source": "/((?!api|_next/static|favicon.ico|blog).*)",
