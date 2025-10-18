@@ -14,7 +14,7 @@
     },
     {
       "source": "/blog",
-      "destination": "https://blog-on-hashnode.vercel.app/blog"
+      "destination": "https://blog-on-hashnode.vercel.app"
     },
     {
       "source": "/blog/:path*",
