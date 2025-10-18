@@ -19,6 +19,10 @@
     {
       "source": "/blog/:path*",
       "destination": "https://blog-on-hashnode.vercel.app/:path*"
+    },
+    {
+      "source": "/((?!api|_next/static|favicon.ico).*)",
+      "destination": "/index.html"
     }
   ]
 }
