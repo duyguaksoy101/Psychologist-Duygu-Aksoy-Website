@@ -36,8 +36,8 @@ const BlogPage = () => {
       }
 
       try {
-        const host = "blog.psikologduyguaksoy.com";
-        const token = "38b1022f-d114-4182-9fa2-c78d8dfed0c5";
+        const host = import.meta.env.VITE_HASHNODE_HOST;
+        const token = import.meta.env.VITE_HASHNODE_API_TOKEN;
 
         const query = `
           query Publication {
