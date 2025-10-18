@@ -1,23 +1,24 @@
 {
-  "redirects": [
-    {
-      "source": "/blog/:path*",
-      "destination": "https://blog.psikologduyguaksoy.com/:path*",
-      "permanent": false
-    }
-  ],
   "rewrites": [
     {
-      "source": "/assets/:path*",
-      "destination": "/assets/:path*"
+      "source": "/blog/_next/:path*",
+      "destination": "https://blog-on-hashnode.vercel.app/_next/:path*"
     },
     {
-      "source": "/image/:path*",
-      "destination": "/image/:path*"
+      "source": "/blog/static/:path*",
+      "destination": "https://blog-on-hashnode.vercel.app/static/:path*"
     },
     {
-      "source": "/:path*",
-      "destination": "/index.html"
+      "source": "/blog/images/:path*",
+      "destination": "https://blog-on-hashnode.vercel.app/images/:path*"
+    },
+    {
+      "source": "/blog",
+      "destination": "https://blog-on-hashnode.vercel.app/blog"
+    },
+    {
+      "source": "/blog/:path*",
+      "destination": "https://blog-on-hashnode.vercel.app/:path*"
     },
     {
       "source": "/((?!api|_next/static|favicon.ico).*)",
