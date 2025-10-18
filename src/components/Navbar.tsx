@@ -6,7 +6,8 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const blogUrl = '/blog'; // Artık internal route olarak çalışacak
+  // Keep blog link internal for client routing; ensure external anchors use Link
+  const blogUrl = '/blog';
 
   useEffect(() => {
     const handleScroll = () => {

@@ -386,15 +386,13 @@ useEffect(() => {
                 Merak eden, kendine ve ihtiyaçlarına dair sorular sormayı sevenler için hazırlanan yazılarımıza göz atmak ister misiniz? Psikoloji, kişisel gelişim ve duygusal keşif konularına odaklanarak, bilgi ve deneyimlerimizi paylaşıyoruz.
               </p>
             </div>
-            <a
-              href={blogUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to={blogUrl}
               className="hidden md:inline-flex items-center text-sm font-medium text-gray-800 hover:text-gray-600"
             >
               Tüm yazılarımıza göz atın
               <ArrowRight size={16} className="ml-1" />
-            </a>
+            </Link>
           </div>
 
           {/* Conditional Rendering based on loading, error, or posts */}
@@ -461,15 +459,13 @@ useEffect(() => {
           )}
 
           <div className="mt-12 text-center md:hidden">
-            <a
-              href={blogUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to={blogUrl}
               className="inline-flex items-center text-sm font-medium text-gray-800 hover:text-gray-600"
             >
               Tüm yazıları görüntüle
               <ArrowRight size={16} className="ml-1" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

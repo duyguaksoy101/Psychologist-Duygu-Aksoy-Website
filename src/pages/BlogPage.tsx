@@ -36,8 +36,9 @@ const BlogPage = () => {
       }
 
       try {
-        const host = import.meta.env.VITE_HASHNODE_HOST;
-        const token = import.meta.env.VITE_HASHNODE_API_TOKEN;
+        // Prefer environment variables, fall back to known working defaults
+        const host = import.meta.env.VITE_HASHNODE_HOST ?? "blog.psikologduyguaksoy.com";
+        const token = import.meta.env.VITE_HASHNODE_API_TOKEN ?? "38b1022f-d114-4182-9fa2-c78d8dfed0c5";
 
         const query = `
           query Publication {
