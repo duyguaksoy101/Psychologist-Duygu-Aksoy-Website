@@ -6,8 +6,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  // DEĞİŞİKLİK: blogUrl güncellendi
-  const blogUrl = '/blog';
+  const blogUrl = '/blog'; // Artık internal route olarak çalışacak
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,9 +26,9 @@ const Navbar = () => {
     name: 'Hakkımda',
     path: '/hakkimda'
   }, {
-    name: 'Blog',
+    name: 'Blog', 
     path: blogUrl,
-    external: true // external: true kalabilir, linkin bir React yolu olmadığını belirtir.
+    external: false
   }, {
     name: 'İletişime Geçin',
     path: '/iletisim'
@@ -40,23 +39,35 @@ const Navbar = () => {
     url: 'https://instagram.com/'
   }];
 
-  const renderNavLink = (link: {
-    name: string;
-    path: string;
-    external?: boolean;
-  }, isMobile = false) => {
-    const className = isMobile ? `text-sm font-medium py-2 transition-colors hover:text-gray-500 ${location.pathname === link.path && !link.external ? 'text-black' : 'text-gray-600'}` : `text-sm font-medium transition-colors hover:text-gray-500 ${location.pathname === link.path && !link.external ? 'text-black' : 'text-gray-600'}`;
-    
-    // DEĞİŞİKLİK: Blog linki artık target="_blank" olmadan normal bir <a> etiketi.
-    if (link.external) {
-      return <a key={link.name} href={link.path} rel="noopener noreferrer" className={className} onClick={closeMenu}>
-          {link.name}
-        </a>;
-    }
-    return <Link key={link.path} to={link.path} className={className} onClick={closeMenu}>
-        {link.name}
-      </Link>;
-  };
+const renderNavLink = (link: {
+  name: string;
+  path: string;
+  external?: boolean;
+}, isMobile = false) => {
+  const className = isMobile 
+    ? `text-sm font-medium py-2 transition-colors hover:text-gray-500 ${
+        location.pathname === link.path && !link.external 
+          ? 'text-black' 
+          : 'text-gray-600'
+      }`
+    : `text-sm font-medium transition-colors hover:text-gray-500 ${
+        location.pathname === link.path && !link.external 
+          ? 'text-black' 
+          : 'text-gray-600'
+      }`;
+  
+  // Blog artık external değil, normal Link kullanın
+  return (
+    <Link
+      key={link.path}
+      to={link.path}
+      className={className}
+      onClick={closeMenu}
+    >
+      {link.name}
+    </Link>
+  );
+};
 
   return <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-sm py-3' : 'bg-transparent py-5'}`}>
       <div className="container mx-auto px-4 md:px-6">
